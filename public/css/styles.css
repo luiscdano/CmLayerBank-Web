@@ -13,17 +13,15 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at 20% 20%, rgba(0, 119, 255, 0.12), transparent 30%),
-    radial-gradient(circle at 80% 0%, rgba(0, 210, 255, 0.1), transparent 32%),
-    #020814;
+  background: radial-gradient(circle at top, #101724, #000000);
+  color: #eaf1ff;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  padding: 32px 16px;
 }
 
 #app {
-  width: min(1080px, 100%);
+  width: 100%;
 }
 
 .shell {
@@ -151,6 +149,14 @@ input:focus {
 
 .btn.wide {
   width: 100%;
+}
+
+.pill-button {
+  border-radius: 40px;
+  padding: 8px 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #eaf1ff;
 }
 
 .btn:hover {
@@ -493,51 +499,101 @@ input:focus {
   }
 }
 
-/* Landing PRO */
-.landing-pro {
-  display: grid;
-  gap: 28px;
-  text-align: center;
-  padding: 20px 12px 12px 12px;
+/* Landing Premium */
+.app-bare {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.landing-center {
-  display: grid;
-  gap: 6px;
+.nav-premium {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 32px;
+  position: sticky;
+  top: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0));
+  z-index: 10;
 }
 
-.landing-brand {
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
-  color: #93d6ff;
+.brand-premium {
+  font-size: 18px;
   font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
 }
 
-.landing-sub {
+.nav-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bare-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.premium-full {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 20px;
+}
+
+.hero-text {
+  margin-top: 40px;
+}
+
+.hero-title-premium {
   margin: 0;
-  color: #b9c7e6;
-  font-size: 16px;
+  font-weight: 800;
+  font-size: clamp(44px, 8vw, 72px);
+  letter-spacing: -1.5px;
 }
 
-.landing-title {
-  margin: 8px 0 0 0;
+.hero-slogan-premium {
+  margin: 10px 0 0 0;
+  font-size: 22px;
+  opacity: 0.85;
+}
+
+.hero-launch {
+  margin: 40px 0 0 0;
   font-size: clamp(32px, 6vw, 48px);
-  color: #f5f8ff;
+  font-weight: 600;
+  animation: pulse 3s ease-in-out infinite;
 }
 
-.contact-block {
-  max-width: 560px;
-  margin: 0 auto;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 16px;
-  padding: 18px;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+@keyframes pulse {
+  0% { opacity: 0.6; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-2px); }
+  100% { opacity: 0.6; transform: translateY(0); }
 }
 
-.contact-block h3 {
-  margin: 0 0 14px 0;
+.contact-float {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact-card-premium {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 20px;
+  padding: 40px;
+  backdrop-filter: blur(22px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
+  width: min(400px, 90vw);
+  text-align: left;
+}
+
+.contact-card-premium h3 {
+  margin: 0 0 20px 0;
   letter-spacing: 0.05em;
   color: #e5eeff;
 }
@@ -545,14 +601,49 @@ input:focus {
 .contact-form input,
 .contact-form textarea {
   width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e8e8e8;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(79, 172, 254, 0.8);
+  outline: none;
+}
+
+.contact-form button {
+  background: linear-gradient(90deg, #4facfe, #00f2fe);
+  color: #031024;
+  border: none;
 }
 
 .landing-footer {
-  margin-top: 8px;
+  margin-top: 80px;
   display: flex;
   justify-content: space-between;
   color: #7fb3ff;
-  font-size: 13px;
+  font-size: 14px;
   gap: 12px;
   flex-wrap: wrap;
+  opacity: 0.65;
+  width: min(960px, 100%);
+}
+
+.premium-footer {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 760px) {
+  .nav-premium {
+    padding: 16px 16px;
+  }
+  .contact-card-premium {
+    padding: 28px;
+  }
+  .landing-footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
 }

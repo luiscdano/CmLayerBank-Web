@@ -1,4 +1,4 @@
-var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{for(var s in a)re(e,s,{get:a[s],enumerable:!0})};var X={};ne(X,{LoginPage:()=>me});var me,Y=ie(()=>{me=()=>`
+var ie=Object.defineProperty;var ne=(e,a)=>()=>(e&&(a=e(e=0)),a);var ce=(e,a)=>{for(var s in a)ie(e,s,{get:a[s],enumerable:!0})};var X={};ce(X,{LoginPage:()=>ue});var ue,ee=ne(()=>{ue=()=>`
   <section class="grid two hero">
     <div>
       <p class="eyebrow">Acceso privado</p>
@@ -20,23 +20,35 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       <p class="muted">Usa las credenciales provistas al owner.</p>
     </form>
   </section>
-`});var F=({nav:e,content:a,actions:s=""})=>`
-  <div class="shell app-shell">
-    <header class="topbar">
-      <div class="brand">
-        <p class="eyebrow">CmLayerBank</p>
-        <h2>Experiencia CmLayer</h2>
+`});var T=({nav:e,content:a,actions:s="",bare:t=!1,brand:i="CmLayerBank"})=>t?`
+      <div class="app-bare">
+        <header class="nav-premium">
+          <div class="brand-premium">${i}</div>
+          <div class="nav-actions">
+            ${s}
+          </div>
+        </header>
+        <main class="app-body bare-body">
+          ${a}
+        </main>
       </div>
-      <div class="top-actions">
-        ${s}
-      </div>
-    </header>
-    ${e||""}
-    <main class="app-body">
-      ${a}
-    </main>
-  </div>
-`;var T=({current:e,views:a})=>`
+    `:`
+    <div class="shell app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <p class="eyebrow">CmLayerBank</p>
+          <h2>Experiencia CmLayer</h2>
+        </div>
+        <div class="top-actions">
+          ${s}
+        </div>
+      </header>
+      ${e||""}
+      <main class="app-body">
+        ${a}
+      </main>
+    </div>
+  `;var j=({current:e,views:a})=>`
   <nav class="tabs">
     ${a.map(s=>`
       <button class="tab ${e===s?"active":""}" data-view="${s}">
@@ -64,7 +76,7 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       </ul>
     </div>
   </section>
-`;var j=(e={})=>{let a=e.score?.score?.score??"\u2014",s=e.aiRate?.annualRate?`${(e.aiRate.annualRate*100).toFixed(2)}%`:"\u2014",t=e.insights;return`
+`;var M=(e={})=>{let a=e.score?.score?.score??"\u2014",s=e.aiRate?.annualRate?`${(e.aiRate.annualRate*100).toFixed(2)}%`:"\u2014",t=e.insights;return`
   <section class="grid two">
     <div class="card metric-card">
       <p class="tag">Saldo</p>
@@ -111,16 +123,16 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       ${t?`
         <ul class="bullets">
           <li>Net 30d: ${t.summary?t.summary.net:"\u2014"}</li>
-          ${(t.alerts||[]).map(n=>`<li>${n}</li>`).join("")}
+          ${(t.alerts||[]).map(i=>`<li>${i}</li>`).join("")}
         </ul>
         <p class="tag">Sugerencias</p>
         <ul class="bullets">
-          ${(t.suggestions||[]).map(n=>`<li>${n}</li>`).join("")}
+          ${(t.suggestions||[]).map(i=>`<li>${i}</li>`).join("")}
         </ul>
       `:'<p class="muted">Sin insights a\xFAn.</p>'}
     </div>
   </section>
-`};var h=e=>`RD$ ${Number(e||0).toFixed(2)}`,Q=(e,a)=>{let s=(e.installments||[]).reduce((u,b)=>u+Number(b.amount||0),0),t=a?.annualRate||null,n=t?Number(((e.amount||0)*(t/12)).toFixed(2)):0,i=Number((s+n).toFixed(2));return{installmentTotal:s,rate:t,estimatedFee:n,total:i}},ce=(e=[],a)=>{if(!e.length)return`
+`};var b=e=>`RD$ ${Number(e||0).toFixed(2)}`,Q=(e,a)=>{let s=(e.installments||[]).reduce((d,h)=>d+Number(h.amount||0),0),t=a?.annualRate||null,i=t?Number(((e.amount||0)*(t/12)).toFixed(2)):0,n=Number((s+i).toFixed(2));return{installmentTotal:s,rate:t,estimatedFee:i,total:n}},le=(e=[],a)=>{if(!e.length)return`
       <div class="card highlight">
         <p class="tag">Desglose transparente</p>
         <p class="muted">Crea un BNPL para ver el calendario de cuotas.</p>
@@ -131,22 +143,22 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       <div class="grid two">
         <div>
           <p class="muted">Monto</p>
-          <p class="label">${h(s.amount)} \xB7 ${s.installments?.length||0} cuotas</p>
-          <p class="muted">Total cuotas: ${h(t.installmentTotal)}</p>
+          <p class="label">${b(s.amount)} \xB7 ${s.installments?.length||0} cuotas</p>
+          <p class="muted">Total cuotas: ${b(t.installmentTotal)}</p>
         </div>
         <div>
           <p class="muted">IA Rate aplicada</p>
           <p class="label">${t.rate?`${(t.rate*100).toFixed(2)}%`:"Pendiente"}</p>
-          <p class="muted">Fee estimado: ${h(t.estimatedFee)}</p>
+          <p class="muted">Fee estimado: ${b(t.estimatedFee)}</p>
         </div>
       </div>
       <ul class="bullets">
-        ${(s.installments||[]).map(n=>`<li>Cuota ${n.number} \xB7 vence ${n.dueDate} \xB7 RD$ ${Number(n.amount).toFixed(2)} (${n.status})</li>`).join("")}
+        ${(s.installments||[]).map(i=>`<li>Cuota ${i.number} \xB7 vence ${i.dueDate} \xB7 RD$ ${Number(i.amount).toFixed(2)} (${i.status})</li>`).join("")}
         <li class="muted">Impacto en score: <span class="positive">paga a tiempo (+5)</span> \xB7 <span class="negative">atrasos (-8)</span></li>
-        <li class="muted">Total estimado con fee: ${h(t.total)}</li>
+        <li class="muted">Total estimado con fee: ${b(t.total)}</li>
       </ul>
     </div>
-  `},le=()=>`
+  `},de=()=>`
   <div class="card">
     <p class="tag">Seguimiento de cuotas</p>
     <div class="timeline">
@@ -173,13 +185,13 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       </div>
     </div>
   </div>
-`,M=(e={})=>{let a=e.bnplOrders||[],s=e.merchants||[],t=e.aiRate;return`
+`,J=(e={})=>{let a=e.bnplOrders||[],s=e.merchants||[],t=e.aiRate;return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Pay in 3 / Pay in 4</p>
         <form class="form grid two" id="bnpl-form">
           <label>Comercio
-            <select name="merchantId">${s.map(i=>`<option value="${i.id}">${i.name} \xB7 ${i.category}</option>`).join("")}</select>
+            <select name="merchantId">${s.map(n=>`<option value="${n.id}">${n.name} \xB7 ${n.category}</option>`).join("")}</select>
           </label>
           <label>Monto
             <input type="number" name="amount" placeholder="RD$" required />
@@ -195,9 +207,9 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
           </label>
           <button class="btn primary" type="submit">Crear BNPL</button>
         </form>
-        ${ce(a,t)}
+        ${le(a,t)}
       </div>
-      ${le()}
+      ${de()}
     </section>
   
     <section class="grid two">
@@ -212,23 +224,23 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       </div>
       <div class="card">
         <p class="tag">\xD3rdenes BNPL</p>
-        ${a.length?a.map(i=>{let u=Q(i,t),b=i.metadata?.source==="qr";return`
+        ${a.length?a.map(n=>{let d=Q(n,t),h=n.metadata?.source==="qr";return`
             <div class="goal">
               <div class="goal-head">
-                <p>${i.metadata?.merchantName||"Comercio"}</p>
-                <p class="goal-amount">RD$ ${Number(i.amount).toFixed(2)}</p>
+                <p>${n.metadata?.merchantName||"Comercio"}</p>
+                <p class="goal-amount">RD$ ${Number(n.amount).toFixed(2)}</p>
               </div>
-              <p class="muted">${i.installments} cuotas \xB7 ${i.status} ${b?'<span class="pill">Desde QR</span>':""}</p>
-              <p class="muted">IA rate: ${u.rate?`${(u.rate*100).toFixed(2)}%`:"Pendiente"} \xB7 Fee estimado ${h(u.estimatedFee)} \xB7 Total ${h(u.total)}</p>
+              <p class="muted">${n.installments} cuotas \xB7 ${n.status} ${h?'<span class="pill">Desde QR</span>':""}</p>
+              <p class="muted">IA rate: ${d.rate?`${(d.rate*100).toFixed(2)}%`:"Pendiente"} \xB7 Fee estimado ${b(d.estimatedFee)} \xB7 Total ${b(d.total)}</p>
               <ul class="bullets">
-                ${(i.installments||[]).map(g=>`<li>Cuota ${g.number} \xB7 vence ${g.dueDate} \xB7 RD$ ${Number(g.amount).toFixed(2)} (${g.status})</li>`).join("")}
+                ${(n.installments||[]).map(g=>`<li>Cuota ${g.number} \xB7 vence ${g.dueDate} \xB7 RD$ ${Number(g.amount).toFixed(2)} (${g.status})</li>`).join("")}
                 <li class="muted">Impacto score: <span class="positive">on-time +5</span> \xB7 <span class="negative">late -8</span></li>
               </ul>
             </div>
           `}).join(""):'<p class="muted">A\xFAn no tienes \xF3rdenes BNPL.</p>'}
       </div>
     </section>
-  `};var J=(e={})=>{let a=e.qrResult;return`
+  `};var K=(e={})=>{let a=e.qrResult;return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Escanear QR</p>
@@ -259,7 +271,7 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
         `:`<p class="muted">${a?.error||"Valida un QR para ver detalles."}</p>`}
       </div>
     </section>
-  `};var K=(e={})=>{let s=(e.kids||{accounts:[]}).accounts||[];return`
+  `};var z=(e={})=>{let s=(e.kids||{accounts:[]}).accounts||[];return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Kids & Teens \u2014 Cuentas</p>
@@ -294,7 +306,7 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
         </form>
       </div>
     </section>
-  `};var z=()=>`
+  `};var V=()=>`
   <section class="grid two">
     <div class="card">
       <p class="tag">Misiones</p>
@@ -313,7 +325,7 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       <p class="muted">Visual placeholder; conectar a ChildGoal en siguientes fases.</p>
     </div>
   </section>
-`;var V=(e={})=>{let s=(e.kids||{accounts:[]}).accounts||[];return`
+`;var _=(e={})=>{let s=(e.kids||{accounts:[]}).accounts||[];return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Crear cuenta Kids</p>
@@ -352,7 +364,7 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
         `).join(""):'<p class="muted">Crea una cuenta para configurar reglas.</p>'}
       </div>
     </section>
-  `};var _=(e={})=>{let a=e.cards?.[0];return`
+  `};var H=(e={})=>{let a=e.cards?.[0];return`
     <section class="card">
       <p class="tag">Tarjeta virtual Protect</p>
       ${a?`
@@ -368,36 +380,36 @@ var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{
       `:'<p class="muted">No tienes tarjeta Protect. Emite una desde dashboard o configuraci\xF3n.</p>'}
     </section>
   `};var D=()=>`
-  <section class="landing-pro">
-    <div class="landing-center">
-      <p class="landing-brand">CmLayerBank</p>
-      <p class="landing-sub">Tu dinero, con inteligencia.</p>
-      <h1 class="landing-title">Launching Soon</h1>
+  <section class="landing-hero premium-full">
+    <div class="hero-text">
+      <h1 class="hero-title-premium">CMLAYERBANK</h1>
+      <p class="hero-slogan-premium">Tu dinero, con inteligencia.</p>
+      <p class="hero-launch">LAUNCHING SOON</p>
     </div>
-
-    <div class="contact-block">
-      <h3>Contact Us</h3>
-      <form class="form contact-form" id="contact-form">
-        <label>Name *
-          <input type="text" name="name" required />
-        </label>
-        <label>Email *
-          <input type="email" name="email" required />
-        </label>
-        <label>Message *
-          <textarea name="message" rows="4" required></textarea>
-        </label>
-        <button class="btn primary wide" type="submit">SEND</button>
-        <p class="muted" id="contact-status"></p>
-      </form>
+    <div class="contact-float">
+      <div class="contact-card-premium">
+        <h3>Contact Us</h3>
+        <form class="form contact-form" id="contact-form">
+          <label>Name *
+            <input type="text" name="name" required />
+          </label>
+          <label>Email *
+            <input type="email" name="email" required />
+          </label>
+          <label>Message *
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <button class="btn primary wide" type="submit">SEND</button>
+          <p class="muted" id="contact-status"></p>
+        </form>
+      </div>
     </div>
-
-    <footer class="landing-footer">
+    <footer class="landing-footer premium-footer">
       <span>\xA9 2025 CmLayerBank. All rights reserved</span>
       <span>Powered by CmLayer</span>
     </footer>
   </section>
-`;var H={background:"#050b18",card:"rgba(255,255,255,0.03)",accent:"#4fd1ff",accent2:"#1a6bff",text:"#eaf1ff",muted:"#9ab3d5"};var de=window.API_BASE||"",C=null,f=e=>{C=e||null},pe=(e={})=>{let a={"Content-Type":"application/json",...e};return C&&(a.Authorization=`Bearer ${C}`),a},r=async(e,a={})=>{let s=await fetch(`${de}${e}`,{...a,headers:pe(a.headers||{})}),t=await s.text(),n=t?JSON.parse(t):null;if(!s.ok){let i=new Error(n?.message||"Error en la API");throw i.status=s.status,i.data=n,i}return n},L={login:(e,a)=>r("/api/auth/login",{method:"POST",body:JSON.stringify({email:e,password:a})}),me:()=>r("/api/auth/me")},U={get:()=>r("/api/credit/score")},G={get:e=>r(`/api/ai/interest-rate${e?`?accountId=${e}`:""}`)},Z={get:()=>r("/api/ai/insights")};var O={issue:e=>r("/api/cards/protect/issue",{method:"POST",body:JSON.stringify({accountId:e})}),freeze:e=>r(`/api/cards/protect/${e}/freeze`,{method:"POST"}),unfreeze:e=>r(`/api/cards/protect/${e}/unfreeze`,{method:"POST"})};var P={listMerchants:()=>r("/api/bnpl/merchants"),listOrders:()=>r("/api/bnpl/orders"),createOrder:({merchantId:e,amount:a,installments:s,description:t,qrData:n})=>r("/api/bnpl/orders",{method:"POST",body:JSON.stringify({merchantId:e||void 0,amount:a,installments:s,description:t,qrData:n})})};var k={request:()=>r("/api/layershield/mfa/request",{method:"POST"}),verify:e=>r("/api/layershield/mfa/verify",{method:"POST",body:JSON.stringify({code:e})}),bindDevice:e=>r("/api/layershield/mfa/bind-device",{method:"POST",body:JSON.stringify({deviceName:e})})};var I={scan:e=>r("/api/qr/scan",{method:"POST",body:JSON.stringify(e)}),createBnpl:e=>r("/api/qr/create-bnpl",{method:"POST",body:JSON.stringify(e)})};var y={listAccounts:()=>r("/api/kids/accounts"),createAccount:e=>r("/api/kids/accounts",{method:"POST",body:JSON.stringify(e)}),updateRules:(e,a)=>r(`/api/kids/accounts/${e}/rules`,{method:"PATCH",body:JSON.stringify(a)}),recordMovement:(e,a)=>r(`/api/kids/accounts/${e}/movements`,{method:"POST",body:JSON.stringify(a)})};var W={send:e=>r("/api/contact",{method:"POST",body:JSON.stringify({...e,source:"landing"})})};var ee=document.getElementById("app"),ae={landing:D,home:A,login:()=>Promise.resolve().then(()=>(Y(),X)).then(e=>e.LoginPage()),dashboard:j,bnpl:M,qr:J,kids:K,"kids-missions":z,"kids-tutor":V,cards:_},o={view:"landing",session:null,score:null,aiRate:null,cards:[],insights:null,bnplOrders:[],merchants:[],qrResult:null,kids:{guardian:null,accounts:[]}},p=()=>{if(!ee)return;let e=!!o.session?.token;!e&&o.view!=="landing"&&o.view!=="login"&&(o.view="landing",window.history.replaceState({},"","/"));let a=Object.keys(ae).filter(i=>!["landing","login"].includes(i)),s=e?T({current:o.view,views:a}):"",t=e?`<div class="top-actions">
-        <span class="pill">${o.session?.user?.email||"Admin"}</span>
+`;var U={background:"#050b18",card:"rgba(255,255,255,0.03)",accent:"#4fd1ff",accent2:"#1a6bff",text:"#eaf1ff",muted:"#9ab3d5"};var pe=window.API_BASE||"",C=null,f=e=>{C=e||null},me=(e={})=>{let a={"Content-Type":"application/json",...e};return C&&(a.Authorization=`Bearer ${C}`),a},o=async(e,a={})=>{let s=await fetch(`${pe}${e}`,{...a,headers:me(a.headers||{})}),t=await s.text(),i=t?JSON.parse(t):null;if(!s.ok){let n=new Error(i?.message||"Error en la API");throw n.status=s.status,n.data=i,n}return i},L={login:(e,a)=>o("/api/auth/login",{method:"POST",body:JSON.stringify({email:e,password:a})}),me:()=>o("/api/auth/me")},G={get:()=>o("/api/credit/score")},Y={get:e=>o(`/api/ai/interest-rate${e?`?accountId=${e}`:""}`)},Z={get:()=>o("/api/ai/insights")};var O={issue:e=>o("/api/cards/protect/issue",{method:"POST",body:JSON.stringify({accountId:e})}),freeze:e=>o(`/api/cards/protect/${e}/freeze`,{method:"POST"}),unfreeze:e=>o(`/api/cards/protect/${e}/unfreeze`,{method:"POST"})};var P={listMerchants:()=>o("/api/bnpl/merchants"),listOrders:()=>o("/api/bnpl/orders"),createOrder:({merchantId:e,amount:a,installments:s,description:t,qrData:i})=>o("/api/bnpl/orders",{method:"POST",body:JSON.stringify({merchantId:e||void 0,amount:a,installments:s,description:t,qrData:i})})};var N={request:()=>o("/api/layershield/mfa/request",{method:"POST"}),verify:e=>o("/api/layershield/mfa/verify",{method:"POST",body:JSON.stringify({code:e})}),bindDevice:e=>o("/api/layershield/mfa/bind-device",{method:"POST",body:JSON.stringify({deviceName:e})})};var I={scan:e=>o("/api/qr/scan",{method:"POST",body:JSON.stringify(e)}),createBnpl:e=>o("/api/qr/create-bnpl",{method:"POST",body:JSON.stringify(e)})};var y={listAccounts:()=>o("/api/kids/accounts"),createAccount:e=>o("/api/kids/accounts",{method:"POST",body:JSON.stringify(e)}),updateRules:(e,a)=>o(`/api/kids/accounts/${e}/rules`,{method:"PATCH",body:JSON.stringify(a)}),recordMovement:(e,a)=>o(`/api/kids/accounts/${e}/movements`,{method:"POST",body:JSON.stringify(a)})};var W={send:e=>o("/api/contact",{method:"POST",body:JSON.stringify({...e,source:"landing"})})};var ae=document.getElementById("app"),te={landing:D,home:A,login:()=>Promise.resolve().then(()=>(ee(),X)).then(e=>e.LoginPage()),dashboard:M,bnpl:J,qr:K,kids:z,"kids-missions":V,"kids-tutor":_,cards:H},r={view:"landing",session:null,score:null,aiRate:null,cards:[],insights:null,bnplOrders:[],merchants:[],qrResult:null,kids:{guardian:null,accounts:[]}},m=()=>{if(!ae)return;let e=!!r.session?.token;!e&&r.view!=="landing"&&r.view!=="login"&&(r.view="landing",window.history.replaceState({},"","/"));let a=r.view==="landing",s=Object.keys(te).filter(d=>!["landing","login"].includes(d)),t=e?j({current:r.view,views:s}):"",i=e?`<div class="top-actions">
+        <span class="pill">${r.session?.user?.email||"Admin"}</span>
         <button class="btn ghost" id="btn-logout">Cerrar sesi\xF3n</button>
-      </div>`:'<div class="top-actions"><button class="btn ghost" id="btn-top-login">Log In</button></div>';(async()=>{let i=ae[o.view]||D,u=typeof i=="function"&&i.constructor.name==="AsyncFunction"?await i(o):typeof i=="function"?i(o):A(o);ee.innerHTML=F({nav:s,content:u,palette:H,actions:t}),e&&document.querySelectorAll("[data-view]").forEach(d=>{d.addEventListener("click",()=>{o.view=d.dataset.view,p()})});let b=document.getElementById("btn-top-login");b&&b.addEventListener("click",()=>{o.view="login",window.history.pushState({},"","/login"),p()});let g=document.getElementById("btn-logout");g&&g.addEventListener("click",()=>{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),o.session=null,f(null),o.view="landing",window.history.replaceState({},"","/"),p()});let R=document.getElementById("login-form");R&&R.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(R),l=c.get("email"),v=c.get("password");try{let m=await L.login(l,v),$=m?.tokens?.accessToken,E=m?.user;$?(f($),o.session={token:$,user:E},localStorage.setItem("cmlayer_token",$),localStorage.setItem("cmlayer_user",JSON.stringify(E)),o.view="dashboard",window.history.replaceState({},"","/"),await oe(),p()):alert("No se recibi\xF3 token")}catch(m){alert(m.message||"No se pudo iniciar sesi\xF3n")}});let S=document.getElementById("create-kid-form");S&&S.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(S);try{await y.createAccount({childName:c.get("childName"),nickname:c.get("nickname"),currency:c.get("currency")||"DOP"}),await N(),p()}catch(l){alert(l.message||"No se pudo crear la cuenta Kids")}}),document.querySelectorAll(".kid-rules-form").forEach(d=>{d.addEventListener("submit",async c=>{c.preventDefault();let l=new FormData(d),v=d.dataset.childId;try{await y.updateRules(v,{maxAmount:Number(l.get("maxAmount")||0),allowedCategories:l.get("allowedCategories")?.split(",").map(m=>m.trim()).filter(Boolean)||[],blockedCategories:l.get("blockedCategories")?.split(",").map(m=>m.trim()).filter(Boolean)||[]}),await N(),p()}catch(m){alert(m.message||"No se pudo actualizar reglas")}})});let x=document.getElementById("kid-movement-form");x&&x.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(x),l=c.get("childId");try{await y.recordMovement(l,{amount:Number(c.get("amount")||0),category:c.get("category")||"",description:c.get("description")||""}),await N(),p()}catch(v){alert(v.message||"No se pudo registrar movimiento")}});let w=document.getElementById("contact-form");w&&w.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(w),l=document.getElementById("contact-status");l&&(l.textContent="Enviando...");try{await W.send({name:c.get("name"),email:c.get("email"),message:c.get("message"),device:navigator?.userAgent||"web",language:navigator?.language||navigator?.userLanguage||"es"}),l&&(l.textContent="Mensaje enviado"),w.reset()}catch{l&&(l.textContent="No se pudo enviar el mensaje")}})})()},oe=async()=>{if(o.session?.token)try{let e=await L.me();o.session.user=e?.user||o.session.user,await ue(),await ge(),await q(),await be(),await B(),await N()}catch{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),o.session=null,f(null),o.view="landing"}},ue=async()=>{if(o.session?.token)try{let e=await U.get();o.score=e}catch{o.score=null}},ge=async()=>{if(o.session?.token)try{let e=await G.get();o.aiRate=e}catch{o.aiRate=null}},q=async()=>{if(o.session?.token)try{let e=await r("/api/cards");o.cards=e||[]}catch{o.cards=[]}},be=async()=>{if(o.session?.token)try{let e=await Z.get();o.insights=e}catch{o.insights=null}},B=async()=>{if(o.session?.token)try{let[e,a]=await Promise.all([P.listOrders(),P.listMerchants()]);o.bnplOrders=e||[],o.merchants=a||[]}catch{o.bnplOrders=[],o.merchants=[]}},N=async()=>{if(o.session?.token)try{let e=await y.listAccounts();o.kids=e||{guardian:null,accounts:[]}}catch{o.kids={guardian:null,accounts:[]}}},te=async e=>{if(o.session?.token)try{let a=await I.scan(e);o.qrResult=a}catch(a){throw o.qrResult={error:a.message||"QR inv\xE1lido"},a}},se=async e=>{if(!o.session?.token)return;let a=await I.createBnpl(e);return await B(),a},ve=async()=>{o.view=window.location.pathname==="/login"?"login":"landing";let e=localStorage.getItem("cmlayer_token"),a=localStorage.getItem("cmlayer_user");e&&(f(e),o.session={token:e,user:a?JSON.parse(a):null},await oe(),o.view="dashboard",window.history.replaceState({},"","/")),p()};ve();document.addEventListener("click",async e=>{let a=e.target?.dataset?.action;if(a){if(a==="mfa")try{await k.request();let s=prompt("Ingresa el c\xF3digo MFA (mock 6 d\xEDgitos)");s&&(await k.verify(s),alert("MFA verificado"))}catch(s){alert(s.message||"Error MFA")}if(a==="bind-device")try{let s=prompt("Nombre del dispositivo");await k.bindDevice(s||"device"),alert("Dispositivo vinculado (mock)")}catch(s){alert(s.message||"Error vinculando dispositivo")}if(a==="freeze-card"){let s=e.target.dataset.cardId;if(!s)return;try{await O.freeze(s),await q(),alert("Tarjeta congelada"),p()}catch(t){alert(t.message||"No se pudo congelar la tarjeta")}}if(a==="unfreeze-card"){let s=e.target.dataset.cardId;if(!s)return;try{await O.unfreeze(s),await q(),alert("Tarjeta activada"),p()}catch(t){alert(t.message||"No se pudo activar la tarjeta")}}}});document.addEventListener("submit",async e=>{if(e.target?.id==="bnpl-form"){e.preventDefault();let a=new FormData(e.target),s={merchantId:a.get("merchantId")||void 0,amount:Number(a.get("amount")||0),installments:a.get("installments"),description:a.get("description")};try{await P.createOrder(s),await B(),alert("BNPL creado"),p()}catch(t){alert(t.message||"Error creando BNPL")}}if(e.target?.id==="bnpl-qr-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await te(t),await se(t),alert("BNPL v\xEDa QR creado"),p()}catch(t){alert(t.message||"Error con QR BNPL")}}if(e.target?.id==="qr-scan-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await te(t),alert("QR v\xE1lido"),p()}catch(t){alert(t.message||"QR inv\xE1lido")}}if(e.target?.id==="qr-create-bnpl-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await se(t),alert("BNPL creado desde QR"),p()}catch(t){alert(t.message||"Error creando BNPL desde QR")}}});
+      </div>`:'<div class="top-actions"><button class="btn pill-button" id="btn-top-login">Log In</button></div>';(async()=>{let d=te[r.view]||D,h=typeof d=="function"&&d.constructor.name==="AsyncFunction"?await d(r):typeof d=="function"?d(r):A(r);ae.innerHTML=T({nav:t,content:h,palette:U,actions:i,bare:a,brand:"CMLAYERBANK"}),e&&document.querySelectorAll("[data-view]").forEach(p=>{p.addEventListener("click",()=>{r.view=p.dataset.view,m()})});let g=document.getElementById("btn-top-login");g&&g.addEventListener("click",()=>{r.view="login",window.history.pushState({},"","/login"),m()});let E=document.getElementById("btn-logout");E&&E.addEventListener("click",()=>{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),r.session=null,f(null),r.view="landing",window.history.replaceState({},"","/"),m()});let R=document.getElementById("login-form");R&&R.addEventListener("submit",async p=>{p.preventDefault();let c=new FormData(R),l=c.get("email"),v=c.get("password");try{let u=await L.login(l,v),$=u?.tokens?.accessToken,F=u?.user;$?(f($),r.session={token:$,user:F},localStorage.setItem("cmlayer_token",$),localStorage.setItem("cmlayer_user",JSON.stringify(F)),r.view="dashboard",window.history.replaceState({},"","/"),await oe(),m()):alert("No se recibi\xF3 token")}catch(u){alert(u.message||"No se pudo iniciar sesi\xF3n")}});let S=document.getElementById("create-kid-form");S&&S.addEventListener("submit",async p=>{p.preventDefault();let c=new FormData(S);try{await y.createAccount({childName:c.get("childName"),nickname:c.get("nickname"),currency:c.get("currency")||"DOP"}),await k(),m()}catch(l){alert(l.message||"No se pudo crear la cuenta Kids")}}),document.querySelectorAll(".kid-rules-form").forEach(p=>{p.addEventListener("submit",async c=>{c.preventDefault();let l=new FormData(p),v=p.dataset.childId;try{await y.updateRules(v,{maxAmount:Number(l.get("maxAmount")||0),allowedCategories:l.get("allowedCategories")?.split(",").map(u=>u.trim()).filter(Boolean)||[],blockedCategories:l.get("blockedCategories")?.split(",").map(u=>u.trim()).filter(Boolean)||[]}),await k(),m()}catch(u){alert(u.message||"No se pudo actualizar reglas")}})});let x=document.getElementById("kid-movement-form");x&&x.addEventListener("submit",async p=>{p.preventDefault();let c=new FormData(x),l=c.get("childId");try{await y.recordMovement(l,{amount:Number(c.get("amount")||0),category:c.get("category")||"",description:c.get("description")||""}),await k(),m()}catch(v){alert(v.message||"No se pudo registrar movimiento")}});let w=document.getElementById("contact-form");w&&w.addEventListener("submit",async p=>{p.preventDefault();let c=new FormData(w),l=document.getElementById("contact-status");l&&(l.textContent="Enviando...");try{await W.send({name:c.get("name"),email:c.get("email"),message:c.get("message"),device:navigator?.userAgent||"web",language:navigator?.language||navigator?.userLanguage||"es"}),l&&(l.textContent="Mensaje enviado"),w.reset()}catch{l&&(l.textContent="No se pudo enviar el mensaje")}})})()},oe=async()=>{if(r.session?.token)try{let e=await L.me();r.session.user=e?.user||r.session.user,await ge(),await ve(),await q(),await be(),await B(),await k()}catch{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),r.session=null,f(null),r.view="landing"}},ge=async()=>{if(r.session?.token)try{let e=await G.get();r.score=e}catch{r.score=null}},ve=async()=>{if(r.session?.token)try{let e=await Y.get();r.aiRate=e}catch{r.aiRate=null}},q=async()=>{if(r.session?.token)try{let e=await o("/api/cards");r.cards=e||[]}catch{r.cards=[]}},be=async()=>{if(r.session?.token)try{let e=await Z.get();r.insights=e}catch{r.insights=null}},B=async()=>{if(r.session?.token)try{let[e,a]=await Promise.all([P.listOrders(),P.listMerchants()]);r.bnplOrders=e||[],r.merchants=a||[]}catch{r.bnplOrders=[],r.merchants=[]}},k=async()=>{if(r.session?.token)try{let e=await y.listAccounts();r.kids=e||{guardian:null,accounts:[]}}catch{r.kids={guardian:null,accounts:[]}}},se=async e=>{if(r.session?.token)try{let a=await I.scan(e);r.qrResult=a}catch(a){throw r.qrResult={error:a.message||"QR inv\xE1lido"},a}},re=async e=>{if(!r.session?.token)return;let a=await I.createBnpl(e);return await B(),a},he=async()=>{r.view=window.location.pathname==="/login"?"login":"landing";let e=localStorage.getItem("cmlayer_token"),a=localStorage.getItem("cmlayer_user");e&&(f(e),r.session={token:e,user:a?JSON.parse(a):null},await oe(),r.view="dashboard",window.history.replaceState({},"","/")),m()};he();document.addEventListener("click",async e=>{let a=e.target?.dataset?.action;if(a){if(a==="mfa")try{await N.request();let s=prompt("Ingresa el c\xF3digo MFA (mock 6 d\xEDgitos)");s&&(await N.verify(s),alert("MFA verificado"))}catch(s){alert(s.message||"Error MFA")}if(a==="bind-device")try{let s=prompt("Nombre del dispositivo");await N.bindDevice(s||"device"),alert("Dispositivo vinculado (mock)")}catch(s){alert(s.message||"Error vinculando dispositivo")}if(a==="freeze-card"){let s=e.target.dataset.cardId;if(!s)return;try{await O.freeze(s),await q(),alert("Tarjeta congelada"),m()}catch(t){alert(t.message||"No se pudo congelar la tarjeta")}}if(a==="unfreeze-card"){let s=e.target.dataset.cardId;if(!s)return;try{await O.unfreeze(s),await q(),alert("Tarjeta activada"),m()}catch(t){alert(t.message||"No se pudo activar la tarjeta")}}}});document.addEventListener("submit",async e=>{if(e.target?.id==="bnpl-form"){e.preventDefault();let a=new FormData(e.target),s={merchantId:a.get("merchantId")||void 0,amount:Number(a.get("amount")||0),installments:a.get("installments"),description:a.get("description")};try{await P.createOrder(s),await B(),alert("BNPL creado"),m()}catch(t){alert(t.message||"Error creando BNPL")}}if(e.target?.id==="bnpl-qr-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await se(t),await re(t),alert("BNPL v\xEDa QR creado"),m()}catch(t){alert(t.message||"Error con QR BNPL")}}if(e.target?.id==="qr-scan-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await se(t),alert("QR v\xE1lido"),m()}catch(t){alert(t.message||"QR inv\xE1lido")}}if(e.target?.id==="qr-create-bnpl-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await re(t),alert("BNPL creado desde QR"),m()}catch(t){alert(t.message||"Error creando BNPL desde QR")}}});
