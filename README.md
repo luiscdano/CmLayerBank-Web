@@ -1,3 +1,3 @@
 # CmLayerBank-Web
 
-Sitio público estático de CmLayerBank (landing + bundle). Dominio: https://www.cmlayerbank.com
+Sitio público estático de CmLayerBank (landing + contacto). Dominio: https://www.cmlayerbank.com
