@@ -1,4 +1,4 @@
-var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for(var s in e)W(a,s,{get:e[s],enumerable:!0})};var z={};Y(z,{LoginPage:()=>ra});var ra,V=X(()=>{ra=()=>`
+var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{for(var t in e)ea(a,t,{get:e[t],enumerable:!0})};var U={};sa(U,{LoginPage:()=>ca});var ca,G=ta(()=>{ca=()=>`
   <section class="grid two hero">
     <div>
       <p class="eyebrow">Acceso seguro</p>
@@ -20,7 +20,7 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       <p class="muted">Sin backend en esta fase. Pr\xF3ximamente autenticaci\xF3n real.</p>
     </form>
   </section>
-`});var O=({nav:a,content:e})=>`
+`});var q=({nav:a,content:e})=>`
   <div class="app-shell">
     <header class="app-top">
       <div>
@@ -34,14 +34,14 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       ${e}
     </main>
   </div>
-`;var C=({current:a,views:e})=>`
+`;var I=({current:a,views:e})=>`
   <nav class="tabs">
-    ${e.map(s=>`
-      <button class="tab ${a===s?"active":""}" data-view="${s}">
-        ${s.replace(/-/g," ")}
+    ${e.map(t=>`
+      <button class="tab ${a===t?"active":""}" data-view="${t}">
+        ${t.replace(/-/g," ")}
       </button>`).join("")}
   </nav>
-`;var f=()=>`
+`;var R=()=>`
   <section class="hero grid two">
     <div>
       <p class="eyebrow">Neobanco dominicano</p>
@@ -62,7 +62,7 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       </ul>
     </div>
   </section>
-`;var q=(a={})=>{let e=a.score?.score?.score??"\u2014",s=a.aiRate?.annualRate?`${(a.aiRate.annualRate*100).toFixed(2)}%`:"\u2014",t=a.insights;return`
+`;var F=(a={})=>{let e=a.score?.score?.score??"\u2014",t=a.aiRate?.annualRate?`${(a.aiRate.annualRate*100).toFixed(2)}%`:"\u2014",s=a.insights;return`
   <section class="grid two">
     <div class="card metric-card">
       <p class="tag">Saldo</p>
@@ -82,7 +82,7 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
         <p class="tag">IA Interest Rate\u2122</p>
         <span class="pill">Din\xE1mico</span>
       </div>
-      <h2>${s}</h2>
+      <h2>${t}</h2>
       <p class="muted">Rango IA seg\xFAn comportamiento y score.</p>
     </div>
     <div class="card">
@@ -106,45 +106,45 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
     </div>
     <div class="card">
       <p class="tag">Alertas</p>
-      ${t?`
+      ${s?`
         <ul class="bullets">
-          <li>Net 30d: ${t.summary?t.summary.net:"\u2014"}</li>
-          ${(t.alerts||[]).map(i=>`<li>${i}</li>`).join("")}
+          <li>Net 30d: ${s.summary?s.summary.net:"\u2014"}</li>
+          ${(s.alerts||[]).map(i=>`<li>${i}</li>`).join("")}
         </ul>
         <p class="tag">Sugerencias</p>
         <ul class="bullets">
-          ${(t.suggestions||[]).map(i=>`<li>${i}</li>`).join("")}
+          ${(s.suggestions||[]).map(i=>`<li>${i}</li>`).join("")}
         </ul>
       `:'<p class="muted">Sin insights a\xFAn.</p>'}
     </div>
   </section>
-`};var g=a=>`RD$ ${Number(a||0).toFixed(2)}`,L=(a,e)=>{let s=(a.installments||[]).reduce((p,l)=>p+Number(l.amount||0),0),t=e?.annualRate||null,i=t?Number(((a.amount||0)*(t/12)).toFixed(2)):0,n=Number((s+i).toFixed(2));return{installmentTotal:s,rate:t,estimatedFee:i,total:n}},aa=(a=[],e)=>{if(!a.length)return`
+`};var h=a=>`RD$ ${Number(a||0).toFixed(2)}`,T=(a,e)=>{let t=(a.installments||[]).reduce((m,g)=>m+Number(g.amount||0),0),s=e?.annualRate||null,i=s?Number(((a.amount||0)*(s/12)).toFixed(2)):0,n=Number((t+i).toFixed(2));return{installmentTotal:t,rate:s,estimatedFee:i,total:n}},ra=(a=[],e)=>{if(!a.length)return`
       <div class="card highlight">
         <p class="tag">Desglose transparente</p>
         <p class="muted">Crea un BNPL para ver el calendario de cuotas.</p>
       </div>
-    `;let s=a[0],t=L(s,e);return`
+    `;let t=a[0],s=T(t,e);return`
     <div class="card highlight">
       <p class="tag">Desglose transparente</p>
       <div class="grid two">
         <div>
           <p class="muted">Monto</p>
-          <p class="label">${g(s.amount)} \xB7 ${s.installments?.length||0} cuotas</p>
-          <p class="muted">Total cuotas: ${g(t.installmentTotal)}</p>
+          <p class="label">${h(t.amount)} \xB7 ${t.installments?.length||0} cuotas</p>
+          <p class="muted">Total cuotas: ${h(s.installmentTotal)}</p>
         </div>
         <div>
           <p class="muted">IA Rate aplicada</p>
-          <p class="label">${t.rate?`${(t.rate*100).toFixed(2)}%`:"Pendiente"}</p>
-          <p class="muted">Fee estimado: ${g(t.estimatedFee)}</p>
+          <p class="label">${s.rate?`${(s.rate*100).toFixed(2)}%`:"Pendiente"}</p>
+          <p class="muted">Fee estimado: ${h(s.estimatedFee)}</p>
         </div>
       </div>
       <ul class="bullets">
-        ${(s.installments||[]).map(i=>`<li>Cuota ${i.number} \xB7 vence ${i.dueDate} \xB7 RD$ ${Number(i.amount).toFixed(2)} (${i.status})</li>`).join("")}
+        ${(t.installments||[]).map(i=>`<li>Cuota ${i.number} \xB7 vence ${i.dueDate} \xB7 RD$ ${Number(i.amount).toFixed(2)} (${i.status})</li>`).join("")}
         <li class="muted">Impacto en score: <span class="positive">paga a tiempo (+5)</span> \xB7 <span class="negative">atrasos (-8)</span></li>
-        <li class="muted">Total estimado con fee: ${g(t.total)}</li>
+        <li class="muted">Total estimado con fee: ${h(s.total)}</li>
       </ul>
     </div>
-  `},ea=()=>`
+  `},oa=()=>`
   <div class="card">
     <p class="tag">Seguimiento de cuotas</p>
     <div class="timeline">
@@ -171,13 +171,13 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       </div>
     </div>
   </div>
-`,I=(a={})=>{let e=a.bnplOrders||[],s=a.merchants||[],t=a.aiRate;return`
+`,B=(a={})=>{let e=a.bnplOrders||[],t=a.merchants||[],s=a.aiRate;return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Pay in 3 / Pay in 4</p>
         <form class="form grid two" id="bnpl-form">
           <label>Comercio
-            <select name="merchantId">${s.map(n=>`<option value="${n.id}">${n.name} \xB7 ${n.category}</option>`).join("")}</select>
+            <select name="merchantId">${t.map(n=>`<option value="${n.id}">${n.name} \xB7 ${n.category}</option>`).join("")}</select>
           </label>
           <label>Monto
             <input type="number" name="amount" placeholder="RD$" required />
@@ -193,9 +193,9 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
           </label>
           <button class="btn primary" type="submit">Crear BNPL</button>
         </form>
-        ${aa(e,t)}
+        ${ra(e,s)}
       </div>
-      ${ea()}
+      ${oa()}
     </section>
   
     <section class="grid two">
@@ -210,23 +210,23 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       </div>
       <div class="card">
         <p class="tag">\xD3rdenes BNPL</p>
-        ${e.length?e.map(n=>{let p=L(n,t),l=n.metadata?.source==="qr";return`
+        ${e.length?e.map(n=>{let m=T(n,s),g=n.metadata?.source==="qr";return`
             <div class="goal">
               <div class="goal-head">
                 <p>${n.metadata?.merchantName||"Comercio"}</p>
                 <p class="goal-amount">RD$ ${Number(n.amount).toFixed(2)}</p>
               </div>
-              <p class="muted">${n.installments} cuotas \xB7 ${n.status} ${l?'<span class="pill">Desde QR</span>':""}</p>
-              <p class="muted">IA rate: ${p.rate?`${(p.rate*100).toFixed(2)}%`:"Pendiente"} \xB7 Fee estimado ${g(p.estimatedFee)} \xB7 Total ${g(p.total)}</p>
+              <p class="muted">${n.installments} cuotas \xB7 ${n.status} ${g?'<span class="pill">Desde QR</span>':""}</p>
+              <p class="muted">IA rate: ${m.rate?`${(m.rate*100).toFixed(2)}%`:"Pendiente"} \xB7 Fee estimado ${h(m.estimatedFee)} \xB7 Total ${h(m.total)}</p>
               <ul class="bullets">
-                ${(n.installments||[]).map(c=>`<li>Cuota ${c.number} \xB7 vence ${c.dueDate} \xB7 RD$ ${Number(c.amount).toFixed(2)} (${c.status})</li>`).join("")}
+                ${(n.installments||[]).map(b=>`<li>Cuota ${b.number} \xB7 vence ${b.dueDate} \xB7 RD$ ${Number(b.amount).toFixed(2)} (${b.status})</li>`).join("")}
                 <li class="muted">Impacto score: <span class="positive">on-time +5</span> \xB7 <span class="negative">late -8</span></li>
               </ul>
             </div>
           `}).join(""):'<p class="muted">A\xFAn no tienes \xF3rdenes BNPL.</p>'}
       </div>
     </section>
-  `};var F=(a={})=>{let e=a.qrResult;return`
+  `};var E=(a={})=>{let e=a.qrResult;return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Escanear QR</p>
@@ -257,17 +257,17 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
         `:`<p class="muted">${e?.error||"Valida un QR para ver detalles."}</p>`}
       </div>
     </section>
-  `};var T=(a={})=>{let s=(a.kids||{accounts:[]}).accounts||[];return`
+  `};var j=(a={})=>{let t=(a.kids||{accounts:[]}).accounts||[];return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Kids & Teens \u2014 Cuentas</p>
-        ${s.length?s.map(t=>`
+        ${t.length?t.map(s=>`
           <div class="goal">
             <div class="goal-head">
-              <p>${t.childName} (${t.nickname||""})</p>
-              <p class="goal-amount">RD$ ${Number(t.balance||0).toFixed(2)}</p>
+              <p>${s.childName} (${s.nickname||""})</p>
+              <p class="goal-amount">RD$ ${Number(s.balance||0).toFixed(2)}</p>
             </div>
-            <p class="muted">Reglas: max RD$ ${(t.spendingRules?.maxAmount||0).toFixed(0)}, bloqueadas: ${(t.spendingRules?.blockedCategories||[]).join(", ")||"ninguna"}</p>
+            <p class="muted">Reglas: max RD$ ${(s.spendingRules?.maxAmount||0).toFixed(0)}, bloqueadas: ${(s.spendingRules?.blockedCategories||[]).join(", ")||"ninguna"}</p>
           </div>
         `).join(""):'<p class="muted">No hay cuentas Kids a\xFAn.</p>'}
       </div>
@@ -276,7 +276,7 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
         <form class="form" id="kid-movement-form">
           <label>Cuenta
             <select name="childId">
-              ${s.map(t=>`<option value="${t.id}">${t.childName} (${t.nickname||""})</option>`).join("")}
+              ${t.map(s=>`<option value="${s.id}">${s.childName} (${s.nickname||""})</option>`).join("")}
             </select>
           </label>
           <label>Monto
@@ -292,7 +292,7 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
         </form>
       </div>
     </section>
-  `};var B=()=>`
+  `};var M=()=>`
   <section class="grid two">
     <div class="card">
       <p class="tag">Misiones</p>
@@ -311,7 +311,7 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       <p class="muted">Visual placeholder; conectar a ChildGoal en siguientes fases.</p>
     </div>
   </section>
-`;var E=(a={})=>{let s=(a.kids||{accounts:[]}).accounts||[];return`
+`;var Q=(a={})=>{let t=(a.kids||{accounts:[]}).accounts||[];return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Crear cuenta Kids</p>
@@ -333,24 +333,24 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
       </div>
       <div class="card">
         <p class="tag">L\xEDmites y categor\xEDas</p>
-        ${s.length?s.map(t=>`
-          <form class="form kid-rules-form" data-child-id="${t.id}">
-            <p class="muted">${t.childName} (${t.nickname||""})</p>
+        ${t.length?t.map(s=>`
+          <form class="form kid-rules-form" data-child-id="${s.id}">
+            <p class="muted">${s.childName} (${s.nickname||""})</p>
             <label>Monto m\xE1ximo por operaci\xF3n
-              <input type="number" name="maxAmount" value="${t.spendingRules?.maxAmount||500}" />
+              <input type="number" name="maxAmount" value="${s.spendingRules?.maxAmount||500}" />
             </label>
             <label>Categor\xEDas permitidas (coma)
-              <input type="text" name="allowedCategories" value="${(t.spendingRules?.allowedCategories||[]).join(",")}" />
+              <input type="text" name="allowedCategories" value="${(s.spendingRules?.allowedCategories||[]).join(",")}" />
             </label>
             <label>Categor\xEDas bloqueadas (coma)
-              <input type="text" name="blockedCategories" value="${(t.spendingRules?.blockedCategories||[]).join(",")}" />
+              <input type="text" name="blockedCategories" value="${(s.spendingRules?.blockedCategories||[]).join(",")}" />
             </label>
             <button class="btn secondary" type="submit">Guardar reglas</button>
           </form>
         `).join(""):'<p class="muted">Crea una cuenta para configurar reglas.</p>'}
       </div>
     </section>
-  `};var Q=(a={})=>{let e=a.cards?.[0];return`
+  `};var J=(a={})=>{let e=a.cards?.[0];return`
     <section class="card">
       <p class="tag">Tarjeta virtual Protect</p>
       ${e?`
@@ -365,4 +365,29 @@ var W=Object.defineProperty;var X=(a,e)=>()=>(a&&(e=a(a=0)),e);var Y=(a,e)=>{for
         </div>
       `:'<p class="muted">No tienes tarjeta Protect. Emite una desde dashboard o configuraci\xF3n.</p>'}
     </section>
-  `};var j={background:"#050b18",card:"rgba(255,255,255,0.03)",accent:"#4fd1ff",accent2:"#1a6bff",text:"#eaf1ff",muted:"#9ab3d5"};var ta=window.API_BASE||"",R=null,y=a=>{R=a||null},sa=(a={})=>{let e={"Content-Type":"application/json",...a};return R&&(e.Authorization=`Bearer ${R}`),e},o=async(a,e={})=>{let s=await fetch(`${ta}${a}`,{...e,headers:sa(e.headers||{})}),t=await s.text(),i=t?JSON.parse(t):null;if(!s.ok){let n=new Error(i?.message||"Error en la API");throw n.status=s.status,n.data=i,n}return i},k={login:(a,e)=>o("/api/auth/login",{method:"POST",body:JSON.stringify({email:a,password:e})}),me:()=>o("/api/auth/me")},M={get:()=>o("/api/credit/score")},J={get:a=>o(`/api/ai/interest-rate${a?`?accountId=${a}`:""}`)},K={get:()=>o("/api/ai/insights")};var N={issue:a=>o("/api/cards/protect/issue",{method:"POST",body:JSON.stringify({accountId:a})}),freeze:a=>o(`/api/cards/protect/${a}/freeze`,{method:"POST"}),unfreeze:a=>o(`/api/cards/protect/${a}/unfreeze`,{method:"POST"})};var w={listMerchants:()=>o("/api/bnpl/merchants"),listOrders:()=>o("/api/bnpl/orders"),createOrder:({merchantId:a,amount:e,installments:s,description:t,qrData:i})=>o("/api/bnpl/orders",{method:"POST",body:JSON.stringify({merchantId:a||void 0,amount:e,installments:s,description:t,qrData:i})})};var $={request:()=>o("/api/layershield/mfa/request",{method:"POST"}),verify:a=>o("/api/layershield/mfa/verify",{method:"POST",body:JSON.stringify({code:a})}),bindDevice:a=>o("/api/layershield/mfa/bind-device",{method:"POST",body:JSON.stringify({deviceName:a})})};var x={scan:a=>o("/api/qr/scan",{method:"POST",body:JSON.stringify(a)}),createBnpl:a=>o("/api/qr/create-bnpl",{method:"POST",body:JSON.stringify(a)})};var v={listAccounts:()=>o("/api/kids/accounts"),createAccount:a=>o("/api/kids/accounts",{method:"POST",body:JSON.stringify(a)}),updateRules:(a,e)=>o(`/api/kids/accounts/${a}/rules`,{method:"PATCH",body:JSON.stringify(e)}),recordMovement:(a,e)=>o(`/api/kids/accounts/${a}/movements`,{method:"POST",body:JSON.stringify(e)})};var _=document.getElementById("app"),H={home:f,login:()=>Promise.resolve().then(()=>(V(),z)).then(a=>a.LoginPage()),dashboard:q,bnpl:I,qr:F,kids:T,"kids-missions":B,"kids-tutor":E,cards:Q},r={view:"home",session:null,score:null,aiRate:null,cards:[],insights:null,bnplOrders:[],merchants:[],qrResult:null,kids:{guardian:null,accounts:[]}},d=()=>{if(!_)return;let a=C({current:r.view,views:Object.keys(H)});(async()=>{let s=H[r.view]||f,t=typeof s=="function"&&s.constructor.name==="AsyncFunction"?await s(r):typeof s=="function"?s(r):f(r);_.innerHTML=O({nav:a,content:t,palette:j}),document.querySelectorAll("[data-view]").forEach(l=>{l.addEventListener("click",()=>{r.view=l.dataset.view,d()})});let i=document.getElementById("login-form");i&&i.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(i),u=c.get("email"),b=c.get("password");try{let m=await k.login(u,b),h=m?.tokens?.accessToken,A=m?.user;h?(y(h),r.session={token:h,user:A},localStorage.setItem("cmlayer_token",h),localStorage.setItem("cmlayer_user",JSON.stringify(A)),r.view="dashboard",await Z(),d()):alert("No se recibi\xF3 token")}catch(m){alert(m.message||"No se pudo iniciar sesi\xF3n")}});let n=document.getElementById("create-kid-form");n&&n.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(n);try{await v.createAccount({childName:c.get("childName"),nickname:c.get("nickname"),currency:c.get("currency")||"DOP"}),await P(),d()}catch(u){alert(u.message||"No se pudo crear la cuenta Kids")}}),document.querySelectorAll(".kid-rules-form").forEach(l=>{l.addEventListener("submit",async c=>{c.preventDefault();let u=new FormData(l),b=l.dataset.childId;try{await v.updateRules(b,{maxAmount:Number(u.get("maxAmount")||0),allowedCategories:u.get("allowedCategories")?.split(",").map(m=>m.trim()).filter(Boolean)||[],blockedCategories:u.get("blockedCategories")?.split(",").map(m=>m.trim()).filter(Boolean)||[]}),await P(),d()}catch(m){alert(m.message||"No se pudo actualizar reglas")}})});let p=document.getElementById("kid-movement-form");p&&p.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(p),u=c.get("childId");try{await v.recordMovement(u,{amount:Number(c.get("amount")||0),category:c.get("category")||"",description:c.get("description")||""}),await P(),d()}catch(b){alert(b.message||"No se pudo registrar movimiento")}})})()},Z=async()=>{if(r.session?.token)try{let a=await k.me();r.session.user=a?.user||r.session.user,await oa(),await ia(),await S(),await na(),await D(),await P()}catch{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),r.session=null,y(null),r.view="login"}},oa=async()=>{if(r.session?.token)try{let a=await M.get();r.score=a}catch{r.score=null}},ia=async()=>{if(r.session?.token)try{let a=await J.get();r.aiRate=a}catch{r.aiRate=null}},S=async()=>{if(r.session?.token)try{let a=await o("/api/cards");r.cards=a||[]}catch{r.cards=[]}},na=async()=>{if(r.session?.token)try{let a=await K.get();r.insights=a}catch{r.insights=null}},D=async()=>{if(r.session?.token)try{let[a,e]=await Promise.all([w.listOrders(),w.listMerchants()]);r.bnplOrders=a||[],r.merchants=e||[]}catch{r.bnplOrders=[],r.merchants=[]}},P=async()=>{if(r.session?.token)try{let a=await v.listAccounts();r.kids=a||{guardian:null,accounts:[]}}catch{r.kids={guardian:null,accounts:[]}}},U=async a=>{if(r.session?.token)try{let e=await x.scan(a);r.qrResult=e}catch(e){throw r.qrResult={error:e.message||"QR inv\xE1lido"},e}},G=async a=>{if(!r.session?.token)return;let e=await x.createBnpl(a);return await D(),e},ca=async()=>{let a=localStorage.getItem("cmlayer_token"),e=localStorage.getItem("cmlayer_user");a&&(y(a),r.session={token:a,user:e?JSON.parse(e):null},await Z(),r.view="dashboard"),d()};ca();document.addEventListener("click",async a=>{let e=a.target?.dataset?.action;if(e){if(e==="mfa")try{await $.request();let s=prompt("Ingresa el c\xF3digo MFA (mock 6 d\xEDgitos)");s&&(await $.verify(s),alert("MFA verificado"))}catch(s){alert(s.message||"Error MFA")}if(e==="bind-device")try{let s=prompt("Nombre del dispositivo");await $.bindDevice(s||"device"),alert("Dispositivo vinculado (mock)")}catch(s){alert(s.message||"Error vinculando dispositivo")}if(e==="freeze-card"){let s=a.target.dataset.cardId;if(!s)return;try{await N.freeze(s),await S(),alert("Tarjeta congelada"),d()}catch(t){alert(t.message||"No se pudo congelar la tarjeta")}}if(e==="unfreeze-card"){let s=a.target.dataset.cardId;if(!s)return;try{await N.unfreeze(s),await S(),alert("Tarjeta activada"),d()}catch(t){alert(t.message||"No se pudo activar la tarjeta")}}}});document.addEventListener("submit",async a=>{if(a.target?.id==="bnpl-form"){a.preventDefault();let e=new FormData(a.target),s={merchantId:e.get("merchantId")||void 0,amount:Number(e.get("amount")||0),installments:e.get("installments"),description:e.get("description")};try{await w.createOrder(s),await D(),alert("BNPL creado"),d()}catch(t){alert(t.message||"Error creando BNPL")}}if(a.target?.id==="bnpl-qr-form"){a.preventDefault();let s=new FormData(a.target).get("qrData");try{let t=JSON.parse(s);await U(t),await G(t),alert("BNPL v\xEDa QR creado"),d()}catch(t){alert(t.message||"Error con QR BNPL")}}if(a.target?.id==="qr-scan-form"){a.preventDefault();let s=new FormData(a.target).get("qrData");try{let t=JSON.parse(s);await U(t),alert("QR v\xE1lido"),d()}catch(t){alert(t.message||"QR inv\xE1lido")}}if(a.target?.id==="qr-create-bnpl-form"){a.preventDefault();let s=new FormData(a.target).get("qrData");try{let t=JSON.parse(s);await G(t),alert("BNPL creado desde QR"),d()}catch(t){alert(t.message||"Error creando BNPL desde QR")}}});
+  `};var x=(a={})=>`
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CMLAYERBANK</p>
+        <h1>Tu dinero, con inteligencia.</h1>
+        <p class="subhead">Neobanco dominicano en construcci\xF3n. Preparing...</p>
+        ${!!a.access?'<div style="margin-top:16px;"><button class="btn primary" id="btn-access-login">Iniciar Sesi\xF3n</button></div>':""}
+      </div>
+    </section>
+    <section class="card" style="margin-top:20px;">
+      <p class="tag">Contacto</p>
+      <form class="form" id="contact-form">
+        <label>Nombre completo
+          <input type="text" name="name" required />
+        </label>
+        <label>Correo electr\xF3nico
+          <input type="email" name="email" required />
+        </label>
+        <label>Mensaje
+          <textarea name="message" rows="4" required></textarea>
+        </label>
+        <button class="btn primary" type="submit">Enviar mensaje</button>
+        <p class="muted" id="contact-status"></p>
+      </form>
+    </section>
+  `;var K={background:"#050b18",card:"rgba(255,255,255,0.03)",accent:"#4fd1ff",accent2:"#1a6bff",text:"#eaf1ff",muted:"#9ab3d5"};var ia=window.API_BASE||"",k=null,w=a=>{k=a||null},na=(a={})=>{let e={"Content-Type":"application/json",...a};return k&&(e.Authorization=`Bearer ${k}`),e},o=async(a,e={})=>{let t=await fetch(`${ia}${a}`,{...e,headers:na(e.headers||{})}),s=await t.text(),i=s?JSON.parse(s):null;if(!t.ok){let n=new Error(i?.message||"Error en la API");throw n.status=t.status,n.data=i,n}return i},S={login:(a,e)=>o("/api/auth/login",{method:"POST",body:JSON.stringify({email:a,password:e})}),me:()=>o("/api/auth/me")},z={get:()=>o("/api/credit/score")},V={get:a=>o(`/api/ai/interest-rate${a?`?accountId=${a}`:""}`)},_={get:()=>o("/api/ai/insights")};var A={issue:a=>o("/api/cards/protect/issue",{method:"POST",body:JSON.stringify({accountId:a})}),freeze:a=>o(`/api/cards/protect/${a}/freeze`,{method:"POST"}),unfreeze:a=>o(`/api/cards/protect/${a}/unfreeze`,{method:"POST"})};var $={listMerchants:()=>o("/api/bnpl/merchants"),listOrders:()=>o("/api/bnpl/orders"),createOrder:({merchantId:a,amount:e,installments:t,description:s,qrData:i})=>o("/api/bnpl/orders",{method:"POST",body:JSON.stringify({merchantId:a||void 0,amount:e,installments:t,description:s,qrData:i})})};var P={request:()=>o("/api/layershield/mfa/request",{method:"POST"}),verify:a=>o("/api/layershield/mfa/verify",{method:"POST",body:JSON.stringify({code:a})}),bindDevice:a=>o("/api/layershield/mfa/bind-device",{method:"POST",body:JSON.stringify({deviceName:a})})};var D={scan:a=>o("/api/qr/scan",{method:"POST",body:JSON.stringify(a)}),createBnpl:a=>o("/api/qr/create-bnpl",{method:"POST",body:JSON.stringify(a)})};var f={listAccounts:()=>o("/api/kids/accounts"),createAccount:a=>o("/api/kids/accounts",{method:"POST",body:JSON.stringify(a)}),updateRules:(a,e)=>o(`/api/kids/accounts/${a}/rules`,{method:"PATCH",body:JSON.stringify(e)}),recordMovement:(a,e)=>o(`/api/kids/accounts/${a}/movements`,{method:"POST",body:JSON.stringify(e)})};var H={send:a=>o("/api/contact",{method:"POST",body:JSON.stringify({...a,source:"landing"})})};var Y=document.getElementById("app"),Z={landing:x,home:R,login:()=>Promise.resolve().then(()=>(G(),U)).then(a=>a.LoginPage()),dashboard:F,bnpl:B,qr:E,kids:j,"kids-missions":M,"kids-tutor":Q,cards:J},r={view:"landing",access:!1,session:null,score:null,aiRate:null,cards:[],insights:null,bnplOrders:[],merchants:[],qrResult:null,kids:{guardian:null,accounts:[]}},p=()=>{if(!Y)return;let a=r.access?I({current:r.view,views:Object.keys(Z).filter(t=>t!=="landing")}):"";(async()=>{let t=Z[r.view]||x,s=typeof t=="function"&&t.constructor.name==="AsyncFunction"?await t(r):typeof t=="function"?t(r):R(r);Y.innerHTML=q({nav:a,content:s,palette:K}),r.access&&document.querySelectorAll("[data-view]").forEach(l=>{l.addEventListener("click",()=>{r.view=l.dataset.view,p()})});let i=document.getElementById("login-form");i&&i.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(i),d=c.get("email"),v=c.get("password");try{let u=await S.login(d,v),y=u?.tokens?.accessToken,L=u?.user;y?(w(y),r.session={token:y,user:L},localStorage.setItem("cmlayer_token",y),localStorage.setItem("cmlayer_user",JSON.stringify(L)),r.view="dashboard",await aa(),p()):alert("No se recibi\xF3 token")}catch(u){alert(u.message||"No se pudo iniciar sesi\xF3n")}});let n=document.getElementById("create-kid-form");n&&n.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(n);try{await f.createAccount({childName:c.get("childName"),nickname:c.get("nickname"),currency:c.get("currency")||"DOP"}),await N(),p()}catch(d){alert(d.message||"No se pudo crear la cuenta Kids")}}),document.querySelectorAll(".kid-rules-form").forEach(l=>{l.addEventListener("submit",async c=>{c.preventDefault();let d=new FormData(l),v=l.dataset.childId;try{await f.updateRules(v,{maxAmount:Number(d.get("maxAmount")||0),allowedCategories:d.get("allowedCategories")?.split(",").map(u=>u.trim()).filter(Boolean)||[],blockedCategories:d.get("blockedCategories")?.split(",").map(u=>u.trim()).filter(Boolean)||[]}),await N(),p()}catch(u){alert(u.message||"No se pudo actualizar reglas")}})});let m=document.getElementById("kid-movement-form");m&&m.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(m),d=c.get("childId");try{await f.recordMovement(d,{amount:Number(c.get("amount")||0),category:c.get("category")||"",description:c.get("description")||""}),await N(),p()}catch(v){alert(v.message||"No se pudo registrar movimiento")}});let g=document.getElementById("contact-form");g&&g.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(g),d=document.getElementById("contact-status");d.textContent="Enviando...";try{await H.send({name:c.get("name"),email:c.get("email"),message:c.get("message")}),d.textContent="Mensaje enviado. Gracias por contactarnos.",g.reset()}catch(v){d.textContent=v.message||"No se pudo enviar. Intenta m\xE1s tarde."}});let b=document.getElementById("btn-access-login");b&&b.addEventListener("click",()=>{r.view="login",p()})})()},aa=async()=>{if(r.session?.token)try{let a=await S.me();r.session.user=a?.user||r.session.user,await la(),await da(),await C(),await pa(),await O(),await N()}catch{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),r.session=null,w(null),r.view="login"}},la=async()=>{if(r.session?.token)try{let a=await z.get();r.score=a}catch{r.score=null}},da=async()=>{if(r.session?.token)try{let a=await V.get();r.aiRate=a}catch{r.aiRate=null}},C=async()=>{if(r.session?.token)try{let a=await o("/api/cards");r.cards=a||[]}catch{r.cards=[]}},pa=async()=>{if(r.session?.token)try{let a=await _.get();r.insights=a}catch{r.insights=null}},O=async()=>{if(r.session?.token)try{let[a,e]=await Promise.all([$.listOrders(),$.listMerchants()]);r.bnplOrders=a||[],r.merchants=e||[]}catch{r.bnplOrders=[],r.merchants=[]}},N=async()=>{if(r.session?.token)try{let a=await f.listAccounts();r.kids=a||{guardian:null,accounts:[]}}catch{r.kids={guardian:null,accounts:[]}}},W=async a=>{if(r.session?.token)try{let e=await D.scan(a);r.qrResult=e}catch(e){throw r.qrResult={error:e.message||"QR inv\xE1lido"},e}},X=async a=>{if(!r.session?.token)return;let e=await D.createBnpl(a);return await O(),e},ma=async()=>{let e=new URLSearchParams(window.location.search).get("access")==="true";r.access=e,r.view=e?"login":"landing";let t=localStorage.getItem("cmlayer_token"),s=localStorage.getItem("cmlayer_user");t&&(w(t),r.session={token:t,user:s?JSON.parse(s):null},await aa(),r.view=e?"dashboard":"landing"),p()};ma();document.addEventListener("click",async a=>{let e=a.target?.dataset?.action;if(e){if(e==="mfa")try{await P.request();let t=prompt("Ingresa el c\xF3digo MFA (mock 6 d\xEDgitos)");t&&(await P.verify(t),alert("MFA verificado"))}catch(t){alert(t.message||"Error MFA")}if(e==="bind-device")try{let t=prompt("Nombre del dispositivo");await P.bindDevice(t||"device"),alert("Dispositivo vinculado (mock)")}catch(t){alert(t.message||"Error vinculando dispositivo")}if(e==="freeze-card"){let t=a.target.dataset.cardId;if(!t)return;try{await A.freeze(t),await C(),alert("Tarjeta congelada"),p()}catch(s){alert(s.message||"No se pudo congelar la tarjeta")}}if(e==="unfreeze-card"){let t=a.target.dataset.cardId;if(!t)return;try{await A.unfreeze(t),await C(),alert("Tarjeta activada"),p()}catch(s){alert(s.message||"No se pudo activar la tarjeta")}}}});document.addEventListener("submit",async a=>{if(a.target?.id==="bnpl-form"){a.preventDefault();let e=new FormData(a.target),t={merchantId:e.get("merchantId")||void 0,amount:Number(e.get("amount")||0),installments:e.get("installments"),description:e.get("description")};try{await $.createOrder(t),await O(),alert("BNPL creado"),p()}catch(s){alert(s.message||"Error creando BNPL")}}if(a.target?.id==="bnpl-qr-form"){a.preventDefault();let t=new FormData(a.target).get("qrData");try{let s=JSON.parse(t);await W(s),await X(s),alert("BNPL v\xEDa QR creado"),p()}catch(s){alert(s.message||"Error con QR BNPL")}}if(a.target?.id==="qr-scan-form"){a.preventDefault();let t=new FormData(a.target).get("qrData");try{let s=JSON.parse(t);await W(s),alert("QR v\xE1lido"),p()}catch(s){alert(s.message||"QR inv\xE1lido")}}if(a.target?.id==="qr-create-bnpl-form"){a.preventDefault();let t=new FormData(a.target).get("qrData");try{let s=JSON.parse(t);await X(s),alert("BNPL creado desde QR"),p()}catch(s){alert(s.message||"Error creando BNPL desde QR")}}});
