@@ -1,15 +1,15 @@
-var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{for(var t in e)ea(a,t,{get:e[t],enumerable:!0})};var U={};sa(U,{LoginPage:()=>ca});var ca,G=ta(()=>{ca=()=>`
+var re=Object.defineProperty;var ie=(e,a)=>()=>(e&&(a=e(e=0)),a);var ne=(e,a)=>{for(var s in a)re(e,s,{get:a[s],enumerable:!0})};var X={};ne(X,{LoginPage:()=>me});var me,Y=ie(()=>{me=()=>`
   <section class="grid two hero">
     <div>
-      <p class="eyebrow">Acceso seguro</p>
-      <h1>Entra a tu experiencia CmLayerBank</h1>
-      <p class="subhead">Login minimal, sin conexi\xF3n a backend en esta fase.</p>
+      <p class="eyebrow">Acceso privado</p>
+      <h1>Ingreso seguro CmLayerBank</h1>
+      <p class="subhead">Solo administrador seed. El registro p\xFAblico est\xE1 bloqueado.</p>
       <div class="chips">
-        <button class="chip primary" data-view="home">Volver a la landing</button>
+        <button class="chip primary" data-view="landing">Volver a la landing</button>
       </div>
     </div>
     <form class="card form" id="login-form">
-      <p class="tag">Login demo</p>
+      <p class="tag">Log In</p>
       <label>Email
         <input type="email" name="email" placeholder="tu@email.com" required />
       </label>
@@ -17,31 +17,33 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
         <input type="password" name="password" placeholder="********" required />
       </label>
       <button class="btn primary" type="submit">Continuar</button>
-      <p class="muted">Sin backend en esta fase. Pr\xF3ximamente autenticaci\xF3n real.</p>
+      <p class="muted">Usa las credenciales provistas al owner.</p>
     </form>
   </section>
-`});var q=({nav:a,content:e})=>`
-  <div class="app-shell">
-    <header class="app-top">
-      <div>
+`});var F=({nav:e,content:a,actions:s=""})=>`
+  <div class="shell app-shell">
+    <header class="topbar">
+      <div class="brand">
         <p class="eyebrow">CmLayerBank</p>
         <h2>Experiencia CmLayer</h2>
-        <p class="subhead">Visual base \xB7 Paso a paso</p>
+      </div>
+      <div class="top-actions">
+        ${s}
       </div>
     </header>
-    ${a}
+    ${e||""}
     <main class="app-body">
-      ${e}
+      ${a}
     </main>
   </div>
-`;var I=({current:a,views:e})=>`
+`;var T=({current:e,views:a})=>`
   <nav class="tabs">
-    ${e.map(t=>`
-      <button class="tab ${a===t?"active":""}" data-view="${t}">
-        ${t.replace(/-/g," ")}
+    ${a.map(s=>`
+      <button class="tab ${e===s?"active":""}" data-view="${s}">
+        ${s.replace(/-/g," ")}
       </button>`).join("")}
   </nav>
-`;var R=()=>`
+`;var A=()=>`
   <section class="hero grid two">
     <div>
       <p class="eyebrow">Neobanco dominicano</p>
@@ -62,7 +64,7 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
       </ul>
     </div>
   </section>
-`;var F=(a={})=>{let e=a.score?.score?.score??"\u2014",t=a.aiRate?.annualRate?`${(a.aiRate.annualRate*100).toFixed(2)}%`:"\u2014",s=a.insights;return`
+`;var j=(e={})=>{let a=e.score?.score?.score??"\u2014",s=e.aiRate?.annualRate?`${(e.aiRate.annualRate*100).toFixed(2)}%`:"\u2014",t=e.insights;return`
   <section class="grid two">
     <div class="card metric-card">
       <p class="tag">Saldo</p>
@@ -71,7 +73,7 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
     </div>
     <div class="card metric-card">
       <p class="tag">CmLayerScore\u2122</p>
-      <div class="score-chip">${e}</div>
+      <div class="score-chip">${a}</div>
       <p class="muted">Score por comportamiento (placeholder)</p>
     </div>
   </section>
@@ -82,7 +84,7 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
         <p class="tag">IA Interest Rate\u2122</p>
         <span class="pill">Din\xE1mico</span>
       </div>
-      <h2>${t}</h2>
+      <h2>${s}</h2>
       <p class="muted">Rango IA seg\xFAn comportamiento y score.</p>
     </div>
     <div class="card">
@@ -106,45 +108,45 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
     </div>
     <div class="card">
       <p class="tag">Alertas</p>
-      ${s?`
+      ${t?`
         <ul class="bullets">
-          <li>Net 30d: ${s.summary?s.summary.net:"\u2014"}</li>
-          ${(s.alerts||[]).map(i=>`<li>${i}</li>`).join("")}
+          <li>Net 30d: ${t.summary?t.summary.net:"\u2014"}</li>
+          ${(t.alerts||[]).map(n=>`<li>${n}</li>`).join("")}
         </ul>
         <p class="tag">Sugerencias</p>
         <ul class="bullets">
-          ${(s.suggestions||[]).map(i=>`<li>${i}</li>`).join("")}
+          ${(t.suggestions||[]).map(n=>`<li>${n}</li>`).join("")}
         </ul>
       `:'<p class="muted">Sin insights a\xFAn.</p>'}
     </div>
   </section>
-`};var h=a=>`RD$ ${Number(a||0).toFixed(2)}`,T=(a,e)=>{let t=(a.installments||[]).reduce((m,g)=>m+Number(g.amount||0),0),s=e?.annualRate||null,i=s?Number(((a.amount||0)*(s/12)).toFixed(2)):0,n=Number((t+i).toFixed(2));return{installmentTotal:t,rate:s,estimatedFee:i,total:n}},ra=(a=[],e)=>{if(!a.length)return`
+`};var h=e=>`RD$ ${Number(e||0).toFixed(2)}`,Q=(e,a)=>{let s=(e.installments||[]).reduce((u,b)=>u+Number(b.amount||0),0),t=a?.annualRate||null,n=t?Number(((e.amount||0)*(t/12)).toFixed(2)):0,i=Number((s+n).toFixed(2));return{installmentTotal:s,rate:t,estimatedFee:n,total:i}},ce=(e=[],a)=>{if(!e.length)return`
       <div class="card highlight">
         <p class="tag">Desglose transparente</p>
         <p class="muted">Crea un BNPL para ver el calendario de cuotas.</p>
       </div>
-    `;let t=a[0],s=T(t,e);return`
+    `;let s=e[0],t=Q(s,a);return`
     <div class="card highlight">
       <p class="tag">Desglose transparente</p>
       <div class="grid two">
         <div>
           <p class="muted">Monto</p>
-          <p class="label">${h(t.amount)} \xB7 ${t.installments?.length||0} cuotas</p>
-          <p class="muted">Total cuotas: ${h(s.installmentTotal)}</p>
+          <p class="label">${h(s.amount)} \xB7 ${s.installments?.length||0} cuotas</p>
+          <p class="muted">Total cuotas: ${h(t.installmentTotal)}</p>
         </div>
         <div>
           <p class="muted">IA Rate aplicada</p>
-          <p class="label">${s.rate?`${(s.rate*100).toFixed(2)}%`:"Pendiente"}</p>
-          <p class="muted">Fee estimado: ${h(s.estimatedFee)}</p>
+          <p class="label">${t.rate?`${(t.rate*100).toFixed(2)}%`:"Pendiente"}</p>
+          <p class="muted">Fee estimado: ${h(t.estimatedFee)}</p>
         </div>
       </div>
       <ul class="bullets">
-        ${(t.installments||[]).map(i=>`<li>Cuota ${i.number} \xB7 vence ${i.dueDate} \xB7 RD$ ${Number(i.amount).toFixed(2)} (${i.status})</li>`).join("")}
+        ${(s.installments||[]).map(n=>`<li>Cuota ${n.number} \xB7 vence ${n.dueDate} \xB7 RD$ ${Number(n.amount).toFixed(2)} (${n.status})</li>`).join("")}
         <li class="muted">Impacto en score: <span class="positive">paga a tiempo (+5)</span> \xB7 <span class="negative">atrasos (-8)</span></li>
-        <li class="muted">Total estimado con fee: ${h(s.total)}</li>
+        <li class="muted">Total estimado con fee: ${h(t.total)}</li>
       </ul>
     </div>
-  `},oa=()=>`
+  `},le=()=>`
   <div class="card">
     <p class="tag">Seguimiento de cuotas</p>
     <div class="timeline">
@@ -171,13 +173,13 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
       </div>
     </div>
   </div>
-`,B=(a={})=>{let e=a.bnplOrders||[],t=a.merchants||[],s=a.aiRate;return`
+`,M=(e={})=>{let a=e.bnplOrders||[],s=e.merchants||[],t=e.aiRate;return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Pay in 3 / Pay in 4</p>
         <form class="form grid two" id="bnpl-form">
           <label>Comercio
-            <select name="merchantId">${t.map(n=>`<option value="${n.id}">${n.name} \xB7 ${n.category}</option>`).join("")}</select>
+            <select name="merchantId">${s.map(i=>`<option value="${i.id}">${i.name} \xB7 ${i.category}</option>`).join("")}</select>
           </label>
           <label>Monto
             <input type="number" name="amount" placeholder="RD$" required />
@@ -193,9 +195,9 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
           </label>
           <button class="btn primary" type="submit">Crear BNPL</button>
         </form>
-        ${ra(e,s)}
+        ${ce(a,t)}
       </div>
-      ${oa()}
+      ${le()}
     </section>
   
     <section class="grid two">
@@ -210,23 +212,23 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
       </div>
       <div class="card">
         <p class="tag">\xD3rdenes BNPL</p>
-        ${e.length?e.map(n=>{let m=T(n,s),g=n.metadata?.source==="qr";return`
+        ${a.length?a.map(i=>{let u=Q(i,t),b=i.metadata?.source==="qr";return`
             <div class="goal">
               <div class="goal-head">
-                <p>${n.metadata?.merchantName||"Comercio"}</p>
-                <p class="goal-amount">RD$ ${Number(n.amount).toFixed(2)}</p>
+                <p>${i.metadata?.merchantName||"Comercio"}</p>
+                <p class="goal-amount">RD$ ${Number(i.amount).toFixed(2)}</p>
               </div>
-              <p class="muted">${n.installments} cuotas \xB7 ${n.status} ${g?'<span class="pill">Desde QR</span>':""}</p>
-              <p class="muted">IA rate: ${m.rate?`${(m.rate*100).toFixed(2)}%`:"Pendiente"} \xB7 Fee estimado ${h(m.estimatedFee)} \xB7 Total ${h(m.total)}</p>
+              <p class="muted">${i.installments} cuotas \xB7 ${i.status} ${b?'<span class="pill">Desde QR</span>':""}</p>
+              <p class="muted">IA rate: ${u.rate?`${(u.rate*100).toFixed(2)}%`:"Pendiente"} \xB7 Fee estimado ${h(u.estimatedFee)} \xB7 Total ${h(u.total)}</p>
               <ul class="bullets">
-                ${(n.installments||[]).map(b=>`<li>Cuota ${b.number} \xB7 vence ${b.dueDate} \xB7 RD$ ${Number(b.amount).toFixed(2)} (${b.status})</li>`).join("")}
+                ${(i.installments||[]).map(g=>`<li>Cuota ${g.number} \xB7 vence ${g.dueDate} \xB7 RD$ ${Number(g.amount).toFixed(2)} (${g.status})</li>`).join("")}
                 <li class="muted">Impacto score: <span class="positive">on-time +5</span> \xB7 <span class="negative">late -8</span></li>
               </ul>
             </div>
           `}).join(""):'<p class="muted">A\xFAn no tienes \xF3rdenes BNPL.</p>'}
       </div>
     </section>
-  `};var E=(a={})=>{let e=a.qrResult;return`
+  `};var J=(e={})=>{let a=e.qrResult;return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Escanear QR</p>
@@ -245,29 +247,29 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
       </div>
       <div class="card">
         <p class="tag">Detalle del comercio</p>
-        ${e&&!e.error?`
-          <p class="label">${e.merchant?.name||"Comercio"}</p>
-          <p class="value">RD$ ${Number(e.amount).toFixed(2)} (${e.currency})</p>
-          <p class="muted">${e.description}</p>
-          <p class="muted">Expira: ${e.expiresAt}</p>
+        ${a&&!a.error?`
+          <p class="label">${a.merchant?.name||"Comercio"}</p>
+          <p class="value">RD$ ${Number(a.amount).toFixed(2)} (${a.currency})</p>
+          <p class="muted">${a.description}</p>
+          <p class="muted">Expira: ${a.expiresAt}</p>
           <form class="form" id="qr-create-bnpl-form">
-            <input type="hidden" name="qrData" value='${JSON.stringify(e)}' />
+            <input type="hidden" name="qrData" value='${JSON.stringify(a)}' />
             <button class="btn secondary" type="submit">Crear BNPL desde QR</button>
           </form>
-        `:`<p class="muted">${e?.error||"Valida un QR para ver detalles."}</p>`}
+        `:`<p class="muted">${a?.error||"Valida un QR para ver detalles."}</p>`}
       </div>
     </section>
-  `};var j=(a={})=>{let t=(a.kids||{accounts:[]}).accounts||[];return`
+  `};var K=(e={})=>{let s=(e.kids||{accounts:[]}).accounts||[];return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Kids & Teens \u2014 Cuentas</p>
-        ${t.length?t.map(s=>`
+        ${s.length?s.map(t=>`
           <div class="goal">
             <div class="goal-head">
-              <p>${s.childName} (${s.nickname||""})</p>
-              <p class="goal-amount">RD$ ${Number(s.balance||0).toFixed(2)}</p>
+              <p>${t.childName} (${t.nickname||""})</p>
+              <p class="goal-amount">RD$ ${Number(t.balance||0).toFixed(2)}</p>
             </div>
-            <p class="muted">Reglas: max RD$ ${(s.spendingRules?.maxAmount||0).toFixed(0)}, bloqueadas: ${(s.spendingRules?.blockedCategories||[]).join(", ")||"ninguna"}</p>
+            <p class="muted">Reglas: max RD$ ${(t.spendingRules?.maxAmount||0).toFixed(0)}, bloqueadas: ${(t.spendingRules?.blockedCategories||[]).join(", ")||"ninguna"}</p>
           </div>
         `).join(""):'<p class="muted">No hay cuentas Kids a\xFAn.</p>'}
       </div>
@@ -276,7 +278,7 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
         <form class="form" id="kid-movement-form">
           <label>Cuenta
             <select name="childId">
-              ${t.map(s=>`<option value="${s.id}">${s.childName} (${s.nickname||""})</option>`).join("")}
+              ${s.map(t=>`<option value="${t.id}">${t.childName} (${t.nickname||""})</option>`).join("")}
             </select>
           </label>
           <label>Monto
@@ -292,7 +294,7 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
         </form>
       </div>
     </section>
-  `};var M=()=>`
+  `};var z=()=>`
   <section class="grid two">
     <div class="card">
       <p class="tag">Misiones</p>
@@ -311,7 +313,7 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
       <p class="muted">Visual placeholder; conectar a ChildGoal en siguientes fases.</p>
     </div>
   </section>
-`;var Q=(a={})=>{let t=(a.kids||{accounts:[]}).accounts||[];return`
+`;var V=(e={})=>{let s=(e.kids||{accounts:[]}).accounts||[];return`
     <section class="grid two">
       <div class="card">
         <p class="tag">Crear cuenta Kids</p>
@@ -333,61 +335,69 @@ var ea=Object.defineProperty;var ta=(a,e)=>()=>(a&&(e=a(a=0)),e);var sa=(a,e)=>{
       </div>
       <div class="card">
         <p class="tag">L\xEDmites y categor\xEDas</p>
-        ${t.length?t.map(s=>`
-          <form class="form kid-rules-form" data-child-id="${s.id}">
-            <p class="muted">${s.childName} (${s.nickname||""})</p>
+        ${s.length?s.map(t=>`
+          <form class="form kid-rules-form" data-child-id="${t.id}">
+            <p class="muted">${t.childName} (${t.nickname||""})</p>
             <label>Monto m\xE1ximo por operaci\xF3n
-              <input type="number" name="maxAmount" value="${s.spendingRules?.maxAmount||500}" />
+              <input type="number" name="maxAmount" value="${t.spendingRules?.maxAmount||500}" />
             </label>
             <label>Categor\xEDas permitidas (coma)
-              <input type="text" name="allowedCategories" value="${(s.spendingRules?.allowedCategories||[]).join(",")}" />
+              <input type="text" name="allowedCategories" value="${(t.spendingRules?.allowedCategories||[]).join(",")}" />
             </label>
             <label>Categor\xEDas bloqueadas (coma)
-              <input type="text" name="blockedCategories" value="${(s.spendingRules?.blockedCategories||[]).join(",")}" />
+              <input type="text" name="blockedCategories" value="${(t.spendingRules?.blockedCategories||[]).join(",")}" />
             </label>
             <button class="btn secondary" type="submit">Guardar reglas</button>
           </form>
         `).join(""):'<p class="muted">Crea una cuenta para configurar reglas.</p>'}
       </div>
     </section>
-  `};var J=(a={})=>{let e=a.cards?.[0];return`
+  `};var _=(e={})=>{let a=e.cards?.[0];return`
     <section class="card">
       <p class="tag">Tarjeta virtual Protect</p>
-      ${e?`
+      ${a?`
         <div class="card highlight">
           <p class="label">CmLayer Protect</p>
-          <p class="value">**** **** **** ${e.last4}</p>
-          <p class="muted">CVV din\xE1mico: ${e.metadata?.cvvPreview||"***"}</p>
+          <p class="value">**** **** **** ${a.last4}</p>
+          <p class="muted">CVV din\xE1mico: ${a.metadata?.cvvPreview||"***"}</p>
           <div class="chips">
-            <button class="chip secondary" data-action="freeze-card" data-card-id="${e.id}">Freeze</button>
-            <button class="chip primary" data-action="unfreeze-card" data-card-id="${e.id}">Unfreeze</button>
+            <button class="chip secondary" data-action="freeze-card" data-card-id="${a.id}">Freeze</button>
+            <button class="chip primary" data-action="unfreeze-card" data-card-id="${a.id}">Unfreeze</button>
           </div>
         </div>
       `:'<p class="muted">No tienes tarjeta Protect. Emite una desde dashboard o configuraci\xF3n.</p>'}
     </section>
-  `};var x=(a={})=>`
-    <section class="hero">
-      <div>
-        <p class="eyebrow">CMLAYERBANK</p>
-        <h1>Tu dinero, con inteligencia.</h1>
-        <p class="subhead">Neobanco dominicano en construcci\xF3n. Preparing...</p>
-        ${!!a.access?'<div style="margin-top:16px;"><button class="btn primary" id="btn-access-login">Iniciar Sesi\xF3n</button></div>':""}
-      </div>
-    </section>
-    <section class="card" style="margin-top:20px;">
-      <p class="tag">Contacto</p>
-      <form class="form" id="contact-form">
-        <label>Nombre completo
+  `};var D=()=>`
+  <section class="landing-pro">
+    <div class="landing-center">
+      <p class="landing-brand">CmLayerBank</p>
+      <p class="landing-sub">Tu dinero, con inteligencia.</p>
+      <h1 class="landing-title">Launching Soon</h1>
+    </div>
+
+    <div class="contact-block">
+      <h3>Contact Us</h3>
+      <form class="form contact-form" id="contact-form">
+        <label>Name *
           <input type="text" name="name" required />
         </label>
-        <label>Correo electr\xF3nico
+        <label>Email *
           <input type="email" name="email" required />
         </label>
-        <label>Mensaje
+        <label>Message *
           <textarea name="message" rows="4" required></textarea>
         </label>
-        <button class="btn primary" type="submit">Enviar mensaje</button>
+        <button class="btn primary wide" type="submit">SEND</button>
         <p class="muted" id="contact-status"></p>
       </form>
-    </section>
-  `;var K={background:"#050b18",card:"rgba(255,255,255,0.03)",accent:"#4fd1ff",accent2:"#1a6bff",text:"#eaf1ff",muted:"#9ab3d5"};var ia=window.API_BASE||"",k=null,w=a=>{k=a||null},na=(a={})=>{let e={"Content-Type":"application/json",...a};return k&&(e.Authorization=`Bearer ${k}`),e},o=async(a,e={})=>{let t=await fetch(`${ia}${a}`,{...e,headers:na(e.headers||{})}),s=await t.text(),i=s?JSON.parse(s):null;if(!t.ok){let n=new Error(i?.message||"Error en la API");throw n.status=t.status,n.data=i,n}return i},S={login:(a,e)=>o("/api/auth/login",{method:"POST",body:JSON.stringify({email:a,password:e})}),me:()=>o("/api/auth/me")},z={get:()=>o("/api/credit/score")},V={get:a=>o(`/api/ai/interest-rate${a?`?accountId=${a}`:""}`)},_={get:()=>o("/api/ai/insights")};var A={issue:a=>o("/api/cards/protect/issue",{method:"POST",body:JSON.stringify({accountId:a})}),freeze:a=>o(`/api/cards/protect/${a}/freeze`,{method:"POST"}),unfreeze:a=>o(`/api/cards/protect/${a}/unfreeze`,{method:"POST"})};var $={listMerchants:()=>o("/api/bnpl/merchants"),listOrders:()=>o("/api/bnpl/orders"),createOrder:({merchantId:a,amount:e,installments:t,description:s,qrData:i})=>o("/api/bnpl/orders",{method:"POST",body:JSON.stringify({merchantId:a||void 0,amount:e,installments:t,description:s,qrData:i})})};var P={request:()=>o("/api/layershield/mfa/request",{method:"POST"}),verify:a=>o("/api/layershield/mfa/verify",{method:"POST",body:JSON.stringify({code:a})}),bindDevice:a=>o("/api/layershield/mfa/bind-device",{method:"POST",body:JSON.stringify({deviceName:a})})};var D={scan:a=>o("/api/qr/scan",{method:"POST",body:JSON.stringify(a)}),createBnpl:a=>o("/api/qr/create-bnpl",{method:"POST",body:JSON.stringify(a)})};var f={listAccounts:()=>o("/api/kids/accounts"),createAccount:a=>o("/api/kids/accounts",{method:"POST",body:JSON.stringify(a)}),updateRules:(a,e)=>o(`/api/kids/accounts/${a}/rules`,{method:"PATCH",body:JSON.stringify(e)}),recordMovement:(a,e)=>o(`/api/kids/accounts/${a}/movements`,{method:"POST",body:JSON.stringify(e)})};var H={send:a=>o("/api/contact",{method:"POST",body:JSON.stringify({...a,source:"landing"})})};var Y=document.getElementById("app"),Z={landing:x,home:R,login:()=>Promise.resolve().then(()=>(G(),U)).then(a=>a.LoginPage()),dashboard:F,bnpl:B,qr:E,kids:j,"kids-missions":M,"kids-tutor":Q,cards:J},r={view:"landing",access:!1,session:null,score:null,aiRate:null,cards:[],insights:null,bnplOrders:[],merchants:[],qrResult:null,kids:{guardian:null,accounts:[]}},p=()=>{if(!Y)return;let a=r.access?I({current:r.view,views:Object.keys(Z).filter(t=>t!=="landing")}):"";(async()=>{let t=Z[r.view]||x,s=typeof t=="function"&&t.constructor.name==="AsyncFunction"?await t(r):typeof t=="function"?t(r):R(r);Y.innerHTML=q({nav:a,content:s,palette:K}),r.access&&document.querySelectorAll("[data-view]").forEach(l=>{l.addEventListener("click",()=>{r.view=l.dataset.view,p()})});let i=document.getElementById("login-form");i&&i.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(i),d=c.get("email"),v=c.get("password");try{let u=await S.login(d,v),y=u?.tokens?.accessToken,L=u?.user;y?(w(y),r.session={token:y,user:L},localStorage.setItem("cmlayer_token",y),localStorage.setItem("cmlayer_user",JSON.stringify(L)),r.view="dashboard",await aa(),p()):alert("No se recibi\xF3 token")}catch(u){alert(u.message||"No se pudo iniciar sesi\xF3n")}});let n=document.getElementById("create-kid-form");n&&n.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(n);try{await f.createAccount({childName:c.get("childName"),nickname:c.get("nickname"),currency:c.get("currency")||"DOP"}),await N(),p()}catch(d){alert(d.message||"No se pudo crear la cuenta Kids")}}),document.querySelectorAll(".kid-rules-form").forEach(l=>{l.addEventListener("submit",async c=>{c.preventDefault();let d=new FormData(l),v=l.dataset.childId;try{await f.updateRules(v,{maxAmount:Number(d.get("maxAmount")||0),allowedCategories:d.get("allowedCategories")?.split(",").map(u=>u.trim()).filter(Boolean)||[],blockedCategories:d.get("blockedCategories")?.split(",").map(u=>u.trim()).filter(Boolean)||[]}),await N(),p()}catch(u){alert(u.message||"No se pudo actualizar reglas")}})});let m=document.getElementById("kid-movement-form");m&&m.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(m),d=c.get("childId");try{await f.recordMovement(d,{amount:Number(c.get("amount")||0),category:c.get("category")||"",description:c.get("description")||""}),await N(),p()}catch(v){alert(v.message||"No se pudo registrar movimiento")}});let g=document.getElementById("contact-form");g&&g.addEventListener("submit",async l=>{l.preventDefault();let c=new FormData(g),d=document.getElementById("contact-status");d.textContent="Enviando...";try{await H.send({name:c.get("name"),email:c.get("email"),message:c.get("message")}),d.textContent="Mensaje enviado. Gracias por contactarnos.",g.reset()}catch(v){d.textContent=v.message||"No se pudo enviar. Intenta m\xE1s tarde."}});let b=document.getElementById("btn-access-login");b&&b.addEventListener("click",()=>{r.view="login",p()})})()},aa=async()=>{if(r.session?.token)try{let a=await S.me();r.session.user=a?.user||r.session.user,await la(),await da(),await C(),await pa(),await O(),await N()}catch{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),r.session=null,w(null),r.view="login"}},la=async()=>{if(r.session?.token)try{let a=await z.get();r.score=a}catch{r.score=null}},da=async()=>{if(r.session?.token)try{let a=await V.get();r.aiRate=a}catch{r.aiRate=null}},C=async()=>{if(r.session?.token)try{let a=await o("/api/cards");r.cards=a||[]}catch{r.cards=[]}},pa=async()=>{if(r.session?.token)try{let a=await _.get();r.insights=a}catch{r.insights=null}},O=async()=>{if(r.session?.token)try{let[a,e]=await Promise.all([$.listOrders(),$.listMerchants()]);r.bnplOrders=a||[],r.merchants=e||[]}catch{r.bnplOrders=[],r.merchants=[]}},N=async()=>{if(r.session?.token)try{let a=await f.listAccounts();r.kids=a||{guardian:null,accounts:[]}}catch{r.kids={guardian:null,accounts:[]}}},W=async a=>{if(r.session?.token)try{let e=await D.scan(a);r.qrResult=e}catch(e){throw r.qrResult={error:e.message||"QR inv\xE1lido"},e}},X=async a=>{if(!r.session?.token)return;let e=await D.createBnpl(a);return await O(),e},ma=async()=>{let e=new URLSearchParams(window.location.search).get("access")==="true";r.access=e,r.view=e?"login":"landing";let t=localStorage.getItem("cmlayer_token"),s=localStorage.getItem("cmlayer_user");t&&(w(t),r.session={token:t,user:s?JSON.parse(s):null},await aa(),r.view=e?"dashboard":"landing"),p()};ma();document.addEventListener("click",async a=>{let e=a.target?.dataset?.action;if(e){if(e==="mfa")try{await P.request();let t=prompt("Ingresa el c\xF3digo MFA (mock 6 d\xEDgitos)");t&&(await P.verify(t),alert("MFA verificado"))}catch(t){alert(t.message||"Error MFA")}if(e==="bind-device")try{let t=prompt("Nombre del dispositivo");await P.bindDevice(t||"device"),alert("Dispositivo vinculado (mock)")}catch(t){alert(t.message||"Error vinculando dispositivo")}if(e==="freeze-card"){let t=a.target.dataset.cardId;if(!t)return;try{await A.freeze(t),await C(),alert("Tarjeta congelada"),p()}catch(s){alert(s.message||"No se pudo congelar la tarjeta")}}if(e==="unfreeze-card"){let t=a.target.dataset.cardId;if(!t)return;try{await A.unfreeze(t),await C(),alert("Tarjeta activada"),p()}catch(s){alert(s.message||"No se pudo activar la tarjeta")}}}});document.addEventListener("submit",async a=>{if(a.target?.id==="bnpl-form"){a.preventDefault();let e=new FormData(a.target),t={merchantId:e.get("merchantId")||void 0,amount:Number(e.get("amount")||0),installments:e.get("installments"),description:e.get("description")};try{await $.createOrder(t),await O(),alert("BNPL creado"),p()}catch(s){alert(s.message||"Error creando BNPL")}}if(a.target?.id==="bnpl-qr-form"){a.preventDefault();let t=new FormData(a.target).get("qrData");try{let s=JSON.parse(t);await W(s),await X(s),alert("BNPL v\xEDa QR creado"),p()}catch(s){alert(s.message||"Error con QR BNPL")}}if(a.target?.id==="qr-scan-form"){a.preventDefault();let t=new FormData(a.target).get("qrData");try{let s=JSON.parse(t);await W(s),alert("QR v\xE1lido"),p()}catch(s){alert(s.message||"QR inv\xE1lido")}}if(a.target?.id==="qr-create-bnpl-form"){a.preventDefault();let t=new FormData(a.target).get("qrData");try{let s=JSON.parse(t);await X(s),alert("BNPL creado desde QR"),p()}catch(s){alert(s.message||"Error creando BNPL desde QR")}}});
+    </div>
+
+    <footer class="landing-footer">
+      <span>\xA9 2025 CmLayerBank. All rights reserved</span>
+      <span>Powered by CmLayer</span>
+    </footer>
+  </section>
+`;var H={background:"#050b18",card:"rgba(255,255,255,0.03)",accent:"#4fd1ff",accent2:"#1a6bff",text:"#eaf1ff",muted:"#9ab3d5"};var de=window.API_BASE||"",C=null,f=e=>{C=e||null},pe=(e={})=>{let a={"Content-Type":"application/json",...e};return C&&(a.Authorization=`Bearer ${C}`),a},r=async(e,a={})=>{let s=await fetch(`${de}${e}`,{...a,headers:pe(a.headers||{})}),t=await s.text(),n=t?JSON.parse(t):null;if(!s.ok){let i=new Error(n?.message||"Error en la API");throw i.status=s.status,i.data=n,i}return n},L={login:(e,a)=>r("/api/auth/login",{method:"POST",body:JSON.stringify({email:e,password:a})}),me:()=>r("/api/auth/me")},U={get:()=>r("/api/credit/score")},G={get:e=>r(`/api/ai/interest-rate${e?`?accountId=${e}`:""}`)},Z={get:()=>r("/api/ai/insights")};var O={issue:e=>r("/api/cards/protect/issue",{method:"POST",body:JSON.stringify({accountId:e})}),freeze:e=>r(`/api/cards/protect/${e}/freeze`,{method:"POST"}),unfreeze:e=>r(`/api/cards/protect/${e}/unfreeze`,{method:"POST"})};var P={listMerchants:()=>r("/api/bnpl/merchants"),listOrders:()=>r("/api/bnpl/orders"),createOrder:({merchantId:e,amount:a,installments:s,description:t,qrData:n})=>r("/api/bnpl/orders",{method:"POST",body:JSON.stringify({merchantId:e||void 0,amount:a,installments:s,description:t,qrData:n})})};var k={request:()=>r("/api/layershield/mfa/request",{method:"POST"}),verify:e=>r("/api/layershield/mfa/verify",{method:"POST",body:JSON.stringify({code:e})}),bindDevice:e=>r("/api/layershield/mfa/bind-device",{method:"POST",body:JSON.stringify({deviceName:e})})};var I={scan:e=>r("/api/qr/scan",{method:"POST",body:JSON.stringify(e)}),createBnpl:e=>r("/api/qr/create-bnpl",{method:"POST",body:JSON.stringify(e)})};var y={listAccounts:()=>r("/api/kids/accounts"),createAccount:e=>r("/api/kids/accounts",{method:"POST",body:JSON.stringify(e)}),updateRules:(e,a)=>r(`/api/kids/accounts/${e}/rules`,{method:"PATCH",body:JSON.stringify(a)}),recordMovement:(e,a)=>r(`/api/kids/accounts/${e}/movements`,{method:"POST",body:JSON.stringify(a)})};var W={send:e=>r("/api/contact",{method:"POST",body:JSON.stringify({...e,source:"landing"})})};var ee=document.getElementById("app"),ae={landing:D,home:A,login:()=>Promise.resolve().then(()=>(Y(),X)).then(e=>e.LoginPage()),dashboard:j,bnpl:M,qr:J,kids:K,"kids-missions":z,"kids-tutor":V,cards:_},o={view:"landing",session:null,score:null,aiRate:null,cards:[],insights:null,bnplOrders:[],merchants:[],qrResult:null,kids:{guardian:null,accounts:[]}},p=()=>{if(!ee)return;let e=!!o.session?.token;!e&&o.view!=="landing"&&o.view!=="login"&&(o.view="landing",window.history.replaceState({},"","/"));let a=Object.keys(ae).filter(i=>!["landing","login"].includes(i)),s=e?T({current:o.view,views:a}):"",t=e?`<div class="top-actions">
+        <span class="pill">${o.session?.user?.email||"Admin"}</span>
+        <button class="btn ghost" id="btn-logout">Cerrar sesi\xF3n</button>
+      </div>`:'<div class="top-actions"><button class="btn ghost" id="btn-top-login">Log In</button></div>';(async()=>{let i=ae[o.view]||D,u=typeof i=="function"&&i.constructor.name==="AsyncFunction"?await i(o):typeof i=="function"?i(o):A(o);ee.innerHTML=F({nav:s,content:u,palette:H,actions:t}),e&&document.querySelectorAll("[data-view]").forEach(d=>{d.addEventListener("click",()=>{o.view=d.dataset.view,p()})});let b=document.getElementById("btn-top-login");b&&b.addEventListener("click",()=>{o.view="login",window.history.pushState({},"","/login"),p()});let g=document.getElementById("btn-logout");g&&g.addEventListener("click",()=>{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),o.session=null,f(null),o.view="landing",window.history.replaceState({},"","/"),p()});let R=document.getElementById("login-form");R&&R.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(R),l=c.get("email"),v=c.get("password");try{let m=await L.login(l,v),$=m?.tokens?.accessToken,E=m?.user;$?(f($),o.session={token:$,user:E},localStorage.setItem("cmlayer_token",$),localStorage.setItem("cmlayer_user",JSON.stringify(E)),o.view="dashboard",window.history.replaceState({},"","/"),await oe(),p()):alert("No se recibi\xF3 token")}catch(m){alert(m.message||"No se pudo iniciar sesi\xF3n")}});let S=document.getElementById("create-kid-form");S&&S.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(S);try{await y.createAccount({childName:c.get("childName"),nickname:c.get("nickname"),currency:c.get("currency")||"DOP"}),await N(),p()}catch(l){alert(l.message||"No se pudo crear la cuenta Kids")}}),document.querySelectorAll(".kid-rules-form").forEach(d=>{d.addEventListener("submit",async c=>{c.preventDefault();let l=new FormData(d),v=d.dataset.childId;try{await y.updateRules(v,{maxAmount:Number(l.get("maxAmount")||0),allowedCategories:l.get("allowedCategories")?.split(",").map(m=>m.trim()).filter(Boolean)||[],blockedCategories:l.get("blockedCategories")?.split(",").map(m=>m.trim()).filter(Boolean)||[]}),await N(),p()}catch(m){alert(m.message||"No se pudo actualizar reglas")}})});let x=document.getElementById("kid-movement-form");x&&x.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(x),l=c.get("childId");try{await y.recordMovement(l,{amount:Number(c.get("amount")||0),category:c.get("category")||"",description:c.get("description")||""}),await N(),p()}catch(v){alert(v.message||"No se pudo registrar movimiento")}});let w=document.getElementById("contact-form");w&&w.addEventListener("submit",async d=>{d.preventDefault();let c=new FormData(w),l=document.getElementById("contact-status");l&&(l.textContent="Enviando...");try{await W.send({name:c.get("name"),email:c.get("email"),message:c.get("message"),device:navigator?.userAgent||"web",language:navigator?.language||navigator?.userLanguage||"es"}),l&&(l.textContent="Mensaje enviado"),w.reset()}catch{l&&(l.textContent="No se pudo enviar el mensaje")}})})()},oe=async()=>{if(o.session?.token)try{let e=await L.me();o.session.user=e?.user||o.session.user,await ue(),await ge(),await q(),await be(),await B(),await N()}catch{localStorage.removeItem("cmlayer_token"),localStorage.removeItem("cmlayer_user"),o.session=null,f(null),o.view="landing"}},ue=async()=>{if(o.session?.token)try{let e=await U.get();o.score=e}catch{o.score=null}},ge=async()=>{if(o.session?.token)try{let e=await G.get();o.aiRate=e}catch{o.aiRate=null}},q=async()=>{if(o.session?.token)try{let e=await r("/api/cards");o.cards=e||[]}catch{o.cards=[]}},be=async()=>{if(o.session?.token)try{let e=await Z.get();o.insights=e}catch{o.insights=null}},B=async()=>{if(o.session?.token)try{let[e,a]=await Promise.all([P.listOrders(),P.listMerchants()]);o.bnplOrders=e||[],o.merchants=a||[]}catch{o.bnplOrders=[],o.merchants=[]}},N=async()=>{if(o.session?.token)try{let e=await y.listAccounts();o.kids=e||{guardian:null,accounts:[]}}catch{o.kids={guardian:null,accounts:[]}}},te=async e=>{if(o.session?.token)try{let a=await I.scan(e);o.qrResult=a}catch(a){throw o.qrResult={error:a.message||"QR inv\xE1lido"},a}},se=async e=>{if(!o.session?.token)return;let a=await I.createBnpl(e);return await B(),a},ve=async()=>{o.view=window.location.pathname==="/login"?"login":"landing";let e=localStorage.getItem("cmlayer_token"),a=localStorage.getItem("cmlayer_user");e&&(f(e),o.session={token:e,user:a?JSON.parse(a):null},await oe(),o.view="dashboard",window.history.replaceState({},"","/")),p()};ve();document.addEventListener("click",async e=>{let a=e.target?.dataset?.action;if(a){if(a==="mfa")try{await k.request();let s=prompt("Ingresa el c\xF3digo MFA (mock 6 d\xEDgitos)");s&&(await k.verify(s),alert("MFA verificado"))}catch(s){alert(s.message||"Error MFA")}if(a==="bind-device")try{let s=prompt("Nombre del dispositivo");await k.bindDevice(s||"device"),alert("Dispositivo vinculado (mock)")}catch(s){alert(s.message||"Error vinculando dispositivo")}if(a==="freeze-card"){let s=e.target.dataset.cardId;if(!s)return;try{await O.freeze(s),await q(),alert("Tarjeta congelada"),p()}catch(t){alert(t.message||"No se pudo congelar la tarjeta")}}if(a==="unfreeze-card"){let s=e.target.dataset.cardId;if(!s)return;try{await O.unfreeze(s),await q(),alert("Tarjeta activada"),p()}catch(t){alert(t.message||"No se pudo activar la tarjeta")}}}});document.addEventListener("submit",async e=>{if(e.target?.id==="bnpl-form"){e.preventDefault();let a=new FormData(e.target),s={merchantId:a.get("merchantId")||void 0,amount:Number(a.get("amount")||0),installments:a.get("installments"),description:a.get("description")};try{await P.createOrder(s),await B(),alert("BNPL creado"),p()}catch(t){alert(t.message||"Error creando BNPL")}}if(e.target?.id==="bnpl-qr-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await te(t),await se(t),alert("BNPL v\xEDa QR creado"),p()}catch(t){alert(t.message||"Error con QR BNPL")}}if(e.target?.id==="qr-scan-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await te(t),alert("QR v\xE1lido"),p()}catch(t){alert(t.message||"QR inv\xE1lido")}}if(e.target?.id==="qr-create-bnpl-form"){e.preventDefault();let s=new FormData(e.target).get("qrData");try{let t=JSON.parse(s);await se(t),alert("BNPL creado desde QR"),p()}catch(t){alert(t.message||"Error creando BNPL desde QR")}}});
