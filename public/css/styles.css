@@ -525,14 +525,13 @@ input:focus {
 }
 
 .brand-premium {
-  width: 40px;
-  height: 40px;
-  background: url('/assets/img/isotipo.png') center center / contain no-repeat;
-  text-indent: -9999px;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  opacity: 0.85;
+  background: url('/assets/logo-neon.png') center center / contain no-repeat;
+  width: 46px;
+  height: 46px;
 }
 
 .nav-actions {
@@ -556,33 +555,20 @@ input:focus {
   padding: 80px 20px 40px;
   position: relative;
   overflow: hidden;
-  gap: 60px;
+  gap: 40px;
 }
 
-.hero-row {
-  width: 100%;
-  max-width: 1220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 28px;
-  flex-wrap: nowrap;
-  margin: 40px auto 0;
-}
-
-.hero-left {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
-.hero-logo {
-  width: 165px;
-  max-width: 100%;
-  height: auto;
+.hero-stack {
+  max-width: 780px;
+  display: grid;
+  gap: 12px;
+  place-items: center;
   margin: 0 auto;
-  display: block;
+}
+
+.hero-logo-top {
+  width: 86px;
+  height: auto;
   object-fit: contain;
   filter: drop-shadow(0 0 24px rgba(44, 204, 211, 0.55));
 }
@@ -677,7 +663,7 @@ input:focus {
 }
 
 .contact-float {
-  margin-top: 0;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
 }
