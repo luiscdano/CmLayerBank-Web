@@ -525,10 +525,14 @@ input:focus {
 }
 
 .brand-premium {
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  opacity: 0.85;
+  width: 40px;
+  height: 40px;
+  background: url('/assets/img/isotipo.png') center center / contain no-repeat;
+  text-indent: -9999px;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-actions {
@@ -549,27 +553,53 @@ input:focus {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 60px 20px 20px;
+  padding: 80px 20px 40px;
   position: relative;
   overflow: hidden;
+  gap: 60px;
 }
 
-.hero-text {
-  margin-top: 40px;
+.hero-row {
+  width: 100%;
+  max-width: 1220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: nowrap;
+  margin: 40px auto 0;
+}
+
+.hero-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.hero-logo {
+  width: 165px;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(44, 204, 211, 0.55));
 }
 
 .hero-title-premium {
   margin: 0;
   font-weight: 800;
-  font-size: clamp(44px, 8vw, 72px);
+  font-size: 68px;
   letter-spacing: -1.5px;
-  text-shadow: 0 0 20px rgba(38, 198, 218, 0.35);
+  color: #ffffff;
+  text-shadow: 0 10px 35px rgba(44, 204, 211, 0.35);
 }
 
 .hero-slogan-premium {
-  margin: 10px 0 0 0;
+  margin: 0;
   font-size: 22px;
-  opacity: 0.85;
+  color: rgba(211, 226, 243, 0.85);
 }
 
 .brand-logo-glow {
@@ -598,17 +628,46 @@ input:focus {
 }
 
 .hero-subtext {
-  margin: 10px 0 0 0;
-  color: #c9d6f3;
+  margin: 0;
+  color: rgba(211, 226, 243, 0.75);
+  font-size: 18px;
 }
 
 .hero-launch {
-  margin: 40px 0 0 0;
-  font-size: clamp(32px, 6vw, 48px);
-  font-weight: 600;
-  animation: pulse 3s ease-in-out infinite;
-  color: #26c6da;
-  text-shadow: 0 0 18px rgba(26, 188, 156, 0.55), 0 0 28px rgba(38, 198, 218, 0.45);
+  margin: 36px 0 0 0;
+  font-size: 60px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #4adee7 0%, #2cccd3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #4adee7;
+  text-shadow: 0 0 20px rgba(44, 204, 211, 0.35);
+}
+
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  max-width: 640px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, rgba(74, 222, 231, 0.18), rgba(44, 204, 211, 0.18));
+  box-shadow: 0 10px 30px rgba(44, 204, 211, 0.28);
+  border: 1px solid rgba(74, 222, 231, 0.35);
+  color: #eaf7ff;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
 @keyframes pulse {
@@ -618,20 +677,21 @@ input:focus {
 }
 
 .contact-float {
-  margin-top: 60px;
+  margin-top: 0;
   display: flex;
   justify-content: center;
 }
 
 .contact-card-premium {
   background: rgba(255, 255, 255, 0.04);
-  border-radius: 20px;
-  padding: 40px;
+  border-radius: 18px;
+  padding: 18px;
   backdrop-filter: blur(22px);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.35);
-  width: min(400px, 90vw);
+  width: min(420px, 100%);
   text-align: left;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-inline: auto;
 }
 
 .contact-card-premium h3 {
@@ -663,30 +723,73 @@ input:focus {
 
 .landing-footer {
   margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: space-between;
-  color: #7fb3ff;
+  color: rgba(140, 167, 193, 0.7);
   font-size: 14px;
+  font-weight: 500;
   gap: 12px;
   flex-wrap: wrap;
   opacity: 0.65;
-  width: min(960px, 100%);
+  width: min(1320px, 100%);
 }
 
 .premium-footer {
   margin-bottom: 20px;
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1024px) {
+  .hero-title-premium {
+    font-size: 54px;
+  }
+  .hero-slogan-premium {
+    font-size: 20px;
+  }
+  .hero-subtext {
+    font-size: 17px;
+  }
+  .hero-launch {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .premium-full {
+    padding: 64px 16px 32px;
+  }
+  .hero-row {
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 32px;
+  }
+  .hero-title-premium {
+    font-size: 42px;
+  }
+  .hero-slogan-premium {
+    font-size: 18px;
+  }
+  .hero-subtext {
+    font-size: 15px;
+  }
+  .hero-launch {
+    font-size: 40px;
+    margin-top: 22px;
+  }
   .nav-premium {
     padding: 16px 16px;
   }
   .contact-card-premium {
-    padding: 28px;
+    padding: 18px;
   }
   .landing-footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    font-size: 12px;
+  }
+  .contact-float {
+    margin-top: 48px;
   }
 }
