@@ -9,6 +9,7 @@ export const LandingPage = () => `
         poster="assets/isotipo_blanco.png"
         id="hero-video"
       >
+        <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
         <source src="https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4" type="video/mp4" />
       </video>
       <div class="video-overlay"></div>
@@ -33,18 +34,18 @@ export const LandingPage = () => `
       <section class="contact-section" id="contact-section">
         <div class="contact-card reveal-up">
           <h3>Contáctanos</h3>
-          <p class="muted">Déjanos un mensaje</p>
           <form class="form contact-form" id="contact-form">
-            <label>Nombre y apellido *
-              <input type="text" name="name" required placeholder="Tu nombre y apellido" />
-            </label>
-            <label>Correo *
-              <input type="email" name="email" required placeholder="tu@email.com" />
-            </label>
+            <label class="sr-only" for="contact-name">Nombre y apellido *</label>
+            <input id="contact-name" type="text" name="name" required placeholder="Tu nombre y apellido" />
+
+            <label class="sr-only" for="contact-email">Correo *</label>
+            <input id="contact-email" type="email" name="email" required placeholder="tu@email.com" />
+
             <input type="text" name="hp" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true" />
-            <label>Mensaje *
-              <textarea name="message" rows="4" required placeholder="Cuéntanos más"></textarea>
-            </label>
+
+            <label class="sr-only" for="contact-message">Mensaje *</label>
+            <textarea id="contact-message" name="message" rows="4" required placeholder="Cuéntanos más"></textarea>
+
             <input type="hidden" name="captchaToken" id="contact-captcha-token" />
             <button class="btn primary wide" type="submit">Enviar</button>
             <p class="muted" id="contact-status"></p>

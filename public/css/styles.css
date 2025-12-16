@@ -1105,6 +1105,20 @@ textarea:focus {
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
 
+.nav-premium .brand-premium {
+  display: none;
+}
+
+.nav-premium .btn,
+.nav-premium .pill-button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+}
+
 .hero-full {
   min-height: 80vh;
   display: grid;
@@ -1204,6 +1218,18 @@ textarea:focus {
   color: #bfc6d8;
   display: flex;
   justify-content: space-between;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 @media (max-width: 768px) {
