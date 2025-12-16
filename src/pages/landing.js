@@ -9,7 +9,7 @@ export const LandingPage = () => `
         poster="/assets/isotipo_blanco.png"
         id="hero-video"
       >
-        <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+        <source src="https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4" type="video/mp4" />
       </video>
       <div class="video-overlay"></div>
     </div>
@@ -28,20 +28,22 @@ export const LandingPage = () => `
         </div>
       </section>
 
+      <div class="transition-band"></div>
+
       <section class="contact-section" id="contact-section">
         <div class="contact-card reveal-up">
-          <h3>Contact Us</h3>
-          <p class="muted">Drop us a line</p>
+          <h3>Contáctanos</h3>
+          <p class="muted">Déjanos un mensaje</p>
           <form class="form contact-form" id="contact-form">
             <label>Nombre y apellido *
-              <input type="text" name="name" required />
+              <input type="text" name="name" required placeholder="Tu nombre y apellido" />
             </label>
             <label>Correo *
-              <input type="email" name="email" required />
+              <input type="email" name="email" required placeholder="tu@email.com" />
             </label>
             <input type="text" name="hp" class="hidden" autocomplete="off" tabindex="-1" aria-hidden="true" />
             <label>Mensaje *
-              <textarea name="message" rows="4" required></textarea>
+              <textarea name="message" rows="4" required placeholder="Cuéntanos más"></textarea>
             </label>
             <input type="hidden" name="captchaToken" id="contact-captcha-token" />
             <button class="btn primary wide" type="submit">Enviar</button>
