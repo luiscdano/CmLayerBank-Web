@@ -1093,20 +1093,20 @@ textarea:focus {
 
 .nav-premium {
   position: absolute;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1200px, 100%);
-  padding: 14px 20px;
-  background: rgba(0, 0, 0, 0.35);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  top: 16px;
+  right: 16px;
+  left: auto;
+  width: auto;
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  backdrop-filter: none;
+  box-shadow: none;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  gap: 12px;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .nav-premium .brand-premium {
@@ -1136,19 +1136,18 @@ textarea:focus {
   align-items: center;
   gap: 14px;
   padding: 12px 16px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 14px;
-  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hero-logo img {
-  width: 64px;
-  height: 64px;
+  width: 96px;
+  height: 96px;
   object-fit: contain;
   filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.45));
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
+  background: transparent;
 }
 
 .brand-text {
