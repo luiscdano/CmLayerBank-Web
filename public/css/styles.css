@@ -1068,7 +1068,7 @@ textarea:focus {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: url('assets/isotipo_blanco.png') center/cover no-repeat, #000;
+  background: url('public/assets/isotipo_blanco.png') center/cover no-repeat, #000;
 }
 
 .video-bg video {

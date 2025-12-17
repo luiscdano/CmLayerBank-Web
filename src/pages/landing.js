@@ -6,11 +6,10 @@ export const LandingPage = () => `
         loop
         muted
         playsinline
-        poster="assets/isotipo_blanco.png"
+        poster="public/assets/isotipo_blanco.png"
         id="hero-video"
       >
-        <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
-        <source src="https://storage.googleapis.com/coverr-main/mp4/Northern_Lights.mp4" type="video/mp4" />
+        <source src="public/assets/hero.mp4" type="video/mp4" />
       </video>
       <div class="video-overlay"></div>
     </div>
@@ -18,7 +17,7 @@ export const LandingPage = () => `
     <div class="content-shell">
       <section class="hero-full">
         <div class="hero-logo">
-          <img src="assets/isotipo_blanco.png" alt="CmLayerBank" />
+          <img src="public/assets/isotipo_blanco.png" alt="CmLayerBank" />
           <div class="brand-text">
             <h1 class="brand-name">CmLayerBank</h1>
             <p class="brand-slogan">Tu dinero, con inteligencia</p>
