@@ -131,15 +131,14 @@ const render = () => {
       brand: 'CMLAYERBANK'
     });
 
-    if (isAuthenticated) {
-      document.querySelectorAll('[data-view]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          setState({ view: btn.dataset.view });
-          navigate(btn.dataset.view);
-          render();
-        });
+    document.querySelectorAll('[data-view]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.view;
+        setState({ view: target });
+        navigate(target);
+        render();
       });
-    }
+    });
 
     const loginAction = document.getElementById('btn-top-login');
     if (loginAction) {

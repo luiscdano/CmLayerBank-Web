@@ -1198,11 +1198,20 @@ textarea:focus {
 }
 
 @media (max-width: 768px) {
-  .nav-premium { display: none; }
-  .hero-full { padding: 140px 16px 60px; }
+  .nav-premium {
+    display: flex;
+    top: 12px;
+    right: 12px;
+  }
+  .nav-premium .btn,
+  .nav-premium .pill-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+  .hero-full { padding: 120px 12px 60px; }
   .hero-logo img { width: 110px; height: 110px; }
-  .brand-name { font-size: clamp(38px, 10vw, 52px); }
-  .brand-slogan { font-size: clamp(16px, 4vw, 20px); }
-  .hero-title h2 { font-size: clamp(36px, 12vw, 58px); }
+  .brand-name { font-size: clamp(32px, 12vw, 44px); }
+  .brand-slogan { font-size: clamp(14px, 5vw, 18px); }
+  .hero-title h2 { font-size: clamp(32px, 12vw, 46px); margin-top: 16px; }
   .contact-card { padding: 20px; width: 94%; }
 }
