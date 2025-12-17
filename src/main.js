@@ -9,6 +9,7 @@ import { KidsMissionsPage } from './pages/kids-missions.js';
 import { TutorKidsPage } from './pages/kids-tutor.js';
 import { CardsPage } from './pages/cards.js';
 import { LandingPage, initLandingEffects, destroyLandingEffects } from './pages/landing.js';
+import { LoginPage } from './pages/login.js';
 import { MarketplacePage } from './pages/marketplace.js';
 import { DealsPage } from './pages/deals.js';
 import { NotificationsPage } from './pages/notifications.js';
@@ -57,7 +58,7 @@ ensureGhostCss();
 const ROUTES = {
   landing: LandingPage,
   home: HomePage,
-  login: () => import('./pages/login.js').then((m) => m.LoginPage()),
+  login: LoginPage,
   dashboard: DashboardPage,
   bnpl: BnplPage,
   qr: QrPage,
