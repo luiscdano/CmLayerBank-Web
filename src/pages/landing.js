@@ -17,7 +17,7 @@ export const LandingPage = () => `
 
     <div class="content-shell">
       <section class="hero-full">
-        <div class="hero-logo">
+        <div class="hero-logo floating">
           <img src="/public/assets/isotipo_blanco.png" alt="CmLayerBank" />
           <div class="brand-text">
             <h1 class="brand-name">CmLayerBank</h1>
