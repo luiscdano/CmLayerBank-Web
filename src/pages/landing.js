@@ -29,8 +29,6 @@ export const LandingPage = () => `
         </div>
       </section>
 
-      <div class="transition-band"></div>
-
       <section class="contact-section" id="contact-section">
         <div class="contact-card reveal-up">
           <h3>Contáctanos</h3>
