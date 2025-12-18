@@ -265,18 +265,12 @@ const render = () => {
           return;
         }
         try {
-          let captcha = '';
-          try {
-            captcha = await ensureRecaptcha();
-          } catch {
-            captcha = '';
-          }
           await contactApi.send({
             name: form.get('name'),
             email,
             message: form.get('message'),
             honeypot: form.get('hp'),
-            captchaToken: captcha || window?.grecaptcha?.getResponse?.() || form.get('captchaToken') || '',
+            captchaToken: '',
             device: navigator?.userAgent || 'web',
             language: navigator?.language || navigator?.userLanguage || 'es'
           });
@@ -284,6 +278,11 @@ const render = () => {
           contactForm.reset();
         } catch (error) {
           if (statusEl) statusEl.textContent = error?.message || 'No se pudo enviar el mensaje';
+        } finally {
+          // Evitar que se quede en "Enviando..." ante fallos silenciosos
+          if (statusEl && statusEl.textContent === 'Enviando...') {
+            statusEl.textContent = '';
+          }
         }
       });
     }
