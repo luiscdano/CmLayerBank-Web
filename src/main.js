@@ -259,7 +259,7 @@ const render = () => {
         if (statusEl) statusEl.textContent = 'Enviando...';
         // Validación básica de email
         const email = (form.get('email') || '').toString().trim();
-        const emailOk = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+        const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
         if (!emailOk) {
           if (statusEl) statusEl.textContent = 'Correo inválido';
           return;
