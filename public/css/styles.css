@@ -1214,7 +1214,7 @@ textarea:focus {
   .brand-name { font-size: clamp(26px, 9vw, 36px); text-align: left; }
   .brand-slogan { font-size: clamp(12px, 4vw, 16px); text-align: left; }
   .brand-text { text-align: left; }
-  .hero-content { justify-items: start; }
+  .hero-content { justify-items: start; transform: translateX(-6%); }
   .hero-title h2 { font-size: clamp(30px, 10vw, 42px); margin-top: 14px; }
   .contact-card { padding: 20px; width: 94%; }
 }

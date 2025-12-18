@@ -257,11 +257,18 @@ const render = () => {
         const form = new FormData(contactForm);
         const statusEl = document.getElementById('contact-status');
         if (statusEl) statusEl.textContent = 'Enviando...';
+        // Validación básica de email
+        const email = (form.get('email') || '').toString().trim();
+        const emailOk = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email);
+        if (!emailOk) {
+          if (statusEl) statusEl.textContent = 'Correo inválido';
+          return;
+        }
         try {
           const captcha = await ensureRecaptcha();
           await contactApi.send({
             name: form.get('name'),
-            email: form.get('email'),
+            email,
             message: form.get('message'),
             honeypot: form.get('hp'),
             captchaToken: captcha || window?.grecaptcha?.getResponse?.() || form.get('captchaToken') || '',
