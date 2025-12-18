@@ -265,7 +265,12 @@ const render = () => {
           return;
         }
         try {
-          const captcha = await ensureRecaptcha();
+          let captcha = '';
+          try {
+            captcha = await ensureRecaptcha();
+          } catch {
+            captcha = '';
+          }
           await contactApi.send({
             name: form.get('name'),
             email,
